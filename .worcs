@@ -1,0 +1,19 @@
+worcs_version: 0.1.11
+creator: maciejew
+entry_point: manuscript/manuscript.Rmd
+data:
+  ressema_df.csv:
+    save_expression: write.csv(x = data, file = filename, row.names = FALSE)
+    load_expression: read.csv(file = filename, stringsAsFactors = TRUE)
+    codebook: codebook_ressema_df.rmd
+    labels: value_labels_ressema_df.yml
+  data_evening.csv:
+    save_expression: write.csv(x = data, file = filename, row.names = FALSE)
+    load_expression: read.csv(file = filename, stringsAsFactors = TRUE)
+    synthetic: synthetic_data_evening.csv
+    codebook: codebook_data_evening.rmd
+    labels: value_labels_data_evening.yml
+checksums:
+  ressema_df.csv: 8b219aa004ff59d151821c7d1e6b9557
+  data_evening.csv: 289d7dd024fbcc5ce213d0f020700c65
+  synthetic_data_evening.csv: a8992df529629177a31b8a18b4db48e4

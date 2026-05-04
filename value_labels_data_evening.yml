@@ -1,0 +1,39 @@
+Dropped.out:
+  class: factor
+  '1': '0'
+  '2': '1'
+Toest_aspect1:
+  class: factor
+  '1': 'No'
+  '2': 'Yes'
+Toest_aspect2:
+  class: factor
+  '1': 'No'
+  '2': 'Yes'
+Toest_aspect3:
+  class: factor
+  '1': 'No'
+  '2': 'Yes'
+Appmal_noeven:
+  class: factor
+  '1': 'no'
+  '2': 'yes'
+Appmal_negti:
+  class: factor
+  '1': no issue
+Appmal_longexp:
+  class: factor
+  '1': 'no'
+  '2': 'yes'
+n.em.ev:
+  class: factor
+  '1': '0'
+  '2': '1'
+p.em.ev:
+  class: factor
+  '1': '0'
+  '2': '1'
+gender.dum:
+  class: factor
+  '1': '0'
+  '2': '1'

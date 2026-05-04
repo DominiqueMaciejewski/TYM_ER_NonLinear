@@ -1,0 +1,273 @@
+---
+title             : "Supplementary Material - Too Little, Too Much: Evidence for Quadratic Patterns in Emotion Regulation Strategy Use in Daily Life"
+
+shorttitle        : "Emotion Regulation Dynamics"
+  
+author: 
+  - name          : "Dominique F. Maciejewski"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Warandelaan 2, 5037 AB Tilburg, the Netherlands"
+    email         : "d.f.maciejewski@tilburguniversity.edu"
+  - name          : "Yasemin Erbas"
+  - name          : "Tak Tsun Lo"
+  - name          : "Egon Dejonckheere"
+  - name          : "Merlijn Olthof"
+  - name          : "Andrea Bunge"
+  - name          : "Eeske van Roekel"
+
+bibliography      : ["TYMCon_r-references.bib", "TYMCon_references.bib"]
+
+floatsintext      : TRUE
+linenumbers       : yes
+draft             : no
+mask              : no
+
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+numbersections    : false
+header-includes:
+  - \usepackage{float}
+  - \usepackage{placeins}
+  - \usepackage{rotating}
+  - \DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
+  - |
+    \makeatletter
+    \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+      {-1em}%
+      {\normalfont\normalsize\bfseries\typesectitle}}
+    \renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+      {-\z@\relax}%
+      {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
+documentclass     : "apa7"
+classoption       : "man"
+#output            : papaja::apa6_docx
+output            :
+  papaja::apa6_pdf:
+    latex_engine: xelatex
+knit              : worcs::cite_essential
+editor_options: 
+  markdown: 
+    wrap: sentence
+    
+---
+
+```{r setup, include = FALSE}
+source("R/1_Manuscript_setup.R")
+
+# Call results 
+coefs.p.adj <- readRDS("R/output/coefs.p.adj.rds") # Results multilevel analyses (coefficients) positive emotions
+coefs.n.end.adj <- readRDS("R/output/coefs.n.end.adj.rds") # Results multilevel analyses Bray-Curtis - endorsement change only
+aic_bic_table <- readRDS("R/output/aic_bic_table.rds") # Results model fit comparisons linear and quadratic models (AIC and BIC)
+coefs.mod.adj <- readRDS("R/output/coefs.mod.adj.rds") # Results moderation analyses
+
+```
+
+```{r analysis-preferences, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+\newpage
+
+# Supplementary Material
+
+## Supplementary Material 1. Results on positive emotion intensity and emotion regulation strategy use
+
+In addition to asking about the most negative emotion and their associated emotion regulation strategy use, we also asked participants to report about their most positive emotions during that day and whether they employed two regulation strategy in response to their positive emotions.
+For positive emotions, we only assessed positive emotion intensity (and not controllability), because when we designed the study, we did not believe that emotion controllability would a major role for positive emotions.
+Because at the time of the study, there were no questionnaires available asking about positive emotion regulation, we adapted items from the RESS-EMA [@medland2020] we thought were most relevant to the maintenance of positive emotions, namely savoring (which is comparable to positive rumination; “I continually thought about what made me feel good”) and expression (“I showed my feelings”).
+Participants were asked to indicate the intensity to which they used a certain emotion regulation strategy after being prompted with “In response to my most intense positive emotions,…”.
+We pre-registered that positive emotion intensity would be related to increased use of savoring and emotion expression and explored both linear and quadratic associations.
+The *p*-values were by adjusted for multiple comparisons using a Holm correction [@holm1979].
+
+For positive emotion intensity, we found only linear, but no quadratic effects for both positive expression (linear: est = `r printnum(coefs.p.adj$lin.eng.est)`, *SE* = `r printnum(coefs.p.adj$lin.eng.se)`, *p* = `r printp(coefs.p.adj$lin.eng.p, digits = 3L)`; quadratic: est = `r printnum(coefs.p.adj$qua.eng.est)`, *SE* = `r printnum(coefs.p.adj$qua.eng.se)`, *p* = `r printp(coefs.p.adj$qua.eng.p, digits = 2L)` and savoring (linear: est = `r printnum(coefs.p.adj$lin.sav.est)`, *SE* = `r printnum(coefs.p.adj$lin.sav.se)`, *p* `r printp(coefs.p.adj$lin.sav.p, digits = 3L)`; quadratic: est = `r printnum(coefs.p.adj$qua.sav.est)`, *SE* = `r printnum(coefs.p.adj$qua.sav.se)`, *p* = `r printp(coefs.p.adj$qua.sav.p, digits = 2L)`), indicating that when participants reported more intense positive emotions, they reported a higher expression of their positive emotions and greater savoring. These results are in line with previous studies showing that positive emotions are related to more savoring and expression in daily life [@vanderlind2022; @hiekkaranta2021].
+
+\newpage
+
+## Supplementary Material 2. Results Power Analyses
+
+We conducted an a-priori power analysis using Monte Carlo Simulations with 1000 replications following procedures from @lafit2021 using parameter estimates from another pre-existing dataset [@medland2020]. 
+Results are shown in Supplementary Table 1.
+Notably, while quadratic effects typically require larger samples, which may explain why power tended to be larger for quadratic compared to linear terms, our power analyses showed that the power to detect quadratic effects was sometimes higher than for linear effects. 
+This may be partly explained by our approach, because the power analyses were based on estimates from a prior study. 
+This reflects that, in the presence of a true U-shaped relation in the study of Medland et al. (2020), the linear component can be close to zero because increases and decreases across the range cancel each other out, resulting in low power to detect this small effect. 
+In contrast, the quadratic term captures the curvature of the relationship and may therefore have a larger effect size, leading to higher power. 
+For code and more information see our pre-registration <https://osf.io/fg58t/?view_only=7711b0c0057346f58d10192a324ae817>.
+
+\vspace{10pt}
+
+```{r table_power_int}
+
+# Read in table results
+power_int<-read.xlsx("../preregistration/power_emo_intensity")
+power_cont<-read.xlsx("../preregistration/power_emo_control")
+
+# Rename power control (to avoid duplicate names)
+power_cont <- power_cont %>%
+  dplyr::select(power.X, power.X2) %>%
+  dplyr::rename("power.X.cont"="power.X",
+               "power.X2.cont"="power.X2")
+
+# Bind intensity and control
+power<-cbind(power_int,power_cont)
+
+# Select relevant columns
+power <- power %>%
+  dplyr::filter(N == 80) %>%
+  dplyr::select(predictor, power.X, power.X2, power.X.cont, power.X2.cont) %>%
+  mutate_at(2:5, round, digits=2)
+
+colnames(power) <- c("Predictor","linear effect","quadratic effect","linear effect","quadratic effect")
+
+# Make table
+apa_table(
+  power,
+  caption = "Results Power Analyses",
+  align = c("l", rep("c", 5)),
+  col_spanners = list("Intensity" = c(2,3),"Control" = c(4,5)),
+  landscape = FALSE,
+  escape = FALSE 
+)
+
+
+```
+
+\newpage
+
+## Supplementary Material 3. Results on Endorsement Change supcomponent Bray-Curtis dissimilarity index
+
+The Bray-Curtis dissimilarity index has two subcomponents: Replacement, which captures compensatory changes between strategies (i.e., strategy switching), and nestedness, which captures overall change in effort across strategies, but not the direction of change. In the main text, we focus on the replacement results, because overall change in effort is contributed by changes in effort of separate strategies, which are already covered in our multilevel models for individual strategies. Here, we report the results on the nestedness component (see Supplementary Table 2).
+
+For emotion intensity, we found linear and quadratic effects (i.e., the deviation in daily intensity in using emotion regulation strategies compared to the person-mean).
+This indicates that on days that individuals reported lower or higher negative emotion intensity than average, they deviated more from their typical emotion regulation effort.
+For emotion controllability, we found significant quadratic effects, indicating that when emotions were either less controllable or more controllable than usual, participants deviated more from their usual emotion regulation style in the overall effort of using strategies.
+
+Because this component only reflects deviations from average strategy use, but not their direction, it is unclear whether individuals initiated or inhibited emotion regulation efforts with low versus high intensity and controllable emotions. Results on the single strategies give more insight into that. 
+For instance, individuals used less relaxation, expression and rumination with few intense emotions and more relaxation, expression and rumination with more intense emotions. 
+In contrast, individuals showed less reappraisal and suppression with both low and high intense emotions.
+
+(ref:tablenemnote) $p$-values are adjusted for multiple testing using a Holm correction [@holm1979]. Significant fixed effects are printed in **bold**.
+
+```{r table_end}
+
+apa_table(
+  coefs.n.end.adj,
+  caption = "Within-person associations of negative emotion intensity and controllability with endorsement change",
+  align = c("l", rep("c", 6)),
+  col_spanners = list(
+    "Linear" = c(2, 4),
+    "Quadratic" = c(5, 7)
+  ),
+  note = "(ref:tablenemnote)" ,
+  escape = FALSE,
+  placement = "H" 
+)
+
+```
+
+\FloatBarrier
+\clearpage
+
+## Supplementary Material 4. Model comparisons for linear versus quadratic models
+The results on model comparisons along with fit indices are presented in Supplementary Table 3 (for intensity) and 4 (for controllability).
+While for emotion controllability the AIC, BIC and Loglikelihood Ratio test all favored the quadratic model, for emotion intensity, the BIC only favored the quadratic model for distraction, suppression, and endorsement change (whereas the AIC and Loglikelihood ratio test additionally favored the quadratic model for relaxation, reappraisal and strategy switching). 
+Note that instances where the BIC and AIC as well as the Loglikelihood ratio test disagreed concerned models where the quadratic effect was not significant (except for reappraisal).
+
+```{r table_anova_int}
+
+table_int <- aic_bic_table[1:8, ] 
+rownames(table_int) <- NULL
+
+# Make table
+apa_table(
+  table_int,
+  caption = "Model fit results comparing linear with quadratic models for emotion intensity",
+  align = c("l", rep("c", 9)),
+  note = "For the model comparison, the models were refitted with Maximum Likelihood estimation because REML (Restricted Maximum Likelihood) is not appropriate when the models have different fixed effects.",
+  landscape = TRUE,
+  escape = FALSE,
+  placement = "H" 
+)
+
+```
+
+```{r table_anova_cont}
+
+table_cont <- aic_bic_table[9:16, ]
+rownames(table_cont) <- NULL
+
+# Make table
+apa_table(
+  table_cont,
+  caption = "Model fit results comparing linear with quadratic models for emotion controllability",
+  align = c("l", rep("c", 9)),
+  note = "For the model comparison, the models were refitted with Maximum Likelihood estimation because REML (Restricted Maximum Likelihood) is not appropriate when the models have different fixed effects." ,
+  landscape = TRUE,
+  escape = FALSE,
+  placement = "H" 
+)
+
+```
+\newpage
+
+## Supplementary Material 5. Results on Interaction Effects
+
+Supplementary Table 5 shows the model coefficients for the interaction effects between emotion intensity and controllability for all six emotion regulation strategies.
+
+\vspace{10pt}
+
+
+(ref:tablemodnote) ER = Emotion regulation. $p$-values are adjusted for multiple testing using a Holm correction [@holm1979]
+
+```{r table_mod}
+
+# Make table
+apa_table(
+  coefs.mod.adj$coefs.mod.adj,
+  caption = "Interaction Effect of Emotion Intensity and Emotion Controllability on Emotion Regulation Strategies",
+  align = c("l", rep("c", 3)),
+  note = "(ref:tablemodnote)" ,
+  landscape = FALSE,
+  escape = FALSE,
+  placement = "H" 
+)
+
+```
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

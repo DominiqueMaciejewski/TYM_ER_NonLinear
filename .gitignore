@@ -1,0 +1,35 @@
+.Rhistory
+.Rprofile
+*.sas7bdat
+*.fff
+*.log
+*.tex
+*.rds
+.Rproj.user
+
+coupling_IDs.csv
+.RData
+raw data/Data_2023-02-10_Maciejewski-Dominique.RData
+raw data/0_archive/
+raw data/Script_2023-02-10_Maciejewski-Dominique.R
+0_archive/
+preregistration/versions/
+data_evening.csv
+manuscript/versions/
+
+Data collection files/*
+
+manuscript/versions/manuscript_subsample.pdf
+
+manuscript/manuscript.docx
+manuscript/manuscript.log
+manuscript/manuscript.tex
+manuscript/supplementary_materials.log
+manuscript/supplementary_materials.tex
+manuscript/Figures.pptx
+
+!ressema_df.csv
+!codebook_ressema_df.csv
+!synthetic_data_evening.csv
+!codebook_data_evening.csv
+
