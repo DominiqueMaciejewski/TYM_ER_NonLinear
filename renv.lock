@@ -772,7 +772,7 @@
     },
     "emmeans": {
       "Package": "emmeans",
-      "Version": "1.8.9",
+      "Version": "2.0.3",
       "Source": "Repository",
       "Repository": "RSPM",
       "Requirements": [
@@ -782,10 +782,11 @@
         "methods",
         "mvtnorm",
         "numDeriv",
+        "rlang",
         "stats",
         "utils"
       ],
-      "Hash": "6b4662535108aae877533198d72a2318"
+      "Hash": "241a5dd2630757e9aefa1cd75a4d74a6"
     },
     "esmpack": {
       "Package": "esmpack",
