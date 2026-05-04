@@ -466,7 +466,7 @@ Although several quadratic effects were statistically significant, predicted val
 
 <!--Table-->
 
-(ref:tableprednote) Covariates were held constant at their reference category (for categorical variables) or mean (for continuous variables). Assessment time was centered on the middle observation (i.e., day 30 of day 60). Predicted values are reported on the original outcome scale (0–10). Because predictions are based on both linear and quadratic terms, changes between −2 SD and +2 SD are not necessarily symmetric around the mean.
+(ref:tableprednote) Covariates were held constant at their reference category (for categorical variables) or mean (for continuous variables). Assessment time was centered on the middle observation (i.e., day 30 of day 60). Predicted values are reported on the original outcome scale (0–10). Because predictions are based on both linear and quadratic terms, changes between -2 SD and +2 SD are not necessarily symmetric around the mean.
 ```{r table_pred}
 
 apa_table(
