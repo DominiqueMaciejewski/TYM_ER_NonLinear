@@ -88,6 +88,8 @@ The Subfolder `manuscript/R` contains all `R` analyses files.
 The subfolder `manuscript/R/output` contains saved `R`-objects that I call in the manuscript and supplementary text files.
 I added the descripton here, but they not included in this repo, but will be created when you run the `R` scripts.
 
+| File | **Description** | **Usage** |
+|:-----------------------|:-----------------------|:-----------------------|
 | aic_bic_table.rds | Formatted table on linear versus quadratic model comparisons (saved R object) | Read only - changes through source code 5_Manuscript_figures-tables.R |
 | all_estimates.rds | All estimates from multilevel models (saved R object) | Read only - changes through source code 4_Manuscript_multilevel.R |
 | coefs.mod.adj.rds | Coefficients interaction test - formatted for table (saved R object) | Read only - changes through source code 5_Manuscript_figures-tables.R |
