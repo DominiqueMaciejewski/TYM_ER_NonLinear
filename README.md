@@ -146,6 +146,8 @@ Reproduce the results by these 5 steps.
     `install.packages("worcs", dependencies = TRUE)`\
     `tinytex::install_tinytex()`\
     `renv::consent(provided = TRUE)`
+    
+    *Note*: See <https://cjvanlissa.github.io/worcs/articles/setup.html> for more information on this step.
 
 3.  [Clone](https://resources.github.com/github-and-rstudio/#:~:text=Clone%20the%20repository%20with%20RStudio&text=On%20GitHub%2C%20navigate%20to%20the,RStudio%20on%20your%20local%20environment.) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
 
