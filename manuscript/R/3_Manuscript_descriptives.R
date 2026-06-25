@@ -10,12 +10,12 @@
 #
 
 # Setup ----
-source("manuscript/R/1_Manuscript_setup.R")
+source(here::here("manuscript/R/1_Manuscript_setup.R"))
 here::i_am("manuscript/R/3_Manuscript_descriptives.R") #Set location of script
 
-data_evening <- readRDS("manuscript/R/output/data_evening_clean.rds")
-data_person  <- readRDS("manuscript/R/output/data_person_clean.rds")
-sample_flow  <- readRDS("manuscript/R/output/sample_flow.rds")
+data_evening <- readRDS(here::here("manuscript/R/output/data_evening_clean.rds"))
+data_person  <- readRDS(here::here("manuscript/R/output/data_person_clean.rds"))
+sample_flow  <- readRDS(here::here("manuscript/R/output/sample_flow.rds"))
 
 # Participant characteristics ----
 
@@ -240,6 +240,9 @@ res_table_des_columns<-c("","Mean", "Min", "Max", "$SD$", "\\% 0 resp", "ICC")
 
 colnames(res_table_des) <- res_table_des_columns
 
+# Show table
+res_table_des
+
 ## paired t-tests ER strategies ----------------------------------------------
 # Subset the dataframe to include only the "imean" & "ER" variables
 imean_ER_vars <- data_M %>% 
@@ -321,10 +324,10 @@ file.rename(
 )
 
 # Read data from Excel sheets (results of multilevel correlations)
-cor_raw <- readxl::read_excel("manuscript/r/output/correlation.xlsx", sheet = 2) %>%
+cor_raw <- readxl::read_excel(here::here("manuscript/R/output/correlation.xlsx"), sheet = 2) %>%
   as.data.frame()
 
-p_raw <- readxl::read_excel("manuscript/r/output/correlation.xlsx", sheet = 3) %>%
+p_raw <- readxl::read_excel(here::here("manuscript/R/output/correlation.xlsx"), sheet = 3) %>%
   as.data.frame()
 
 # Function to assign stars based on p-values
@@ -390,6 +393,9 @@ res_table_cor <- res_table_cor %>%
 # Rename columns
 colnames(res_table_cor) <- c("", paste0(1:8, "."))
 
+# Show table
+res_table_cor
+
 # Save processed files and outputs ----
 descriptives <- list(
   n_beep1=n_beep1,
@@ -433,5 +439,5 @@ descriptives <- list(
   res_table_cor = res_table_cor
 )
 
-saveRDS(descriptives,  "manuscript/R/output/descriptives.rds")
+saveRDS(descriptives,  here::here("manuscript/R/output/descriptives.rds"))
 

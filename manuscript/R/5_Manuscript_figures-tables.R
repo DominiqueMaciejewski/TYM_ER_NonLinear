@@ -10,16 +10,16 @@
 #
 
 # Setup ----
-source("manuscript/R/1_Manuscript_setup.R")
+source(here::here("manuscript/R/1_Manuscript_setup.R"))
 
 here::i_am("manuscript/R/5_Manuscript_figures-tables.R") #Set location of script
 
-data_evening <- readRDS("manuscript/R/output/data_evening_clean.rds") #Load data
-all_estimates <- readRDS("manuscript/R/output/all_estimates.rds")
-fits.n <- readRDS("manuscript/R/output/fits.n.rds")
-results_n_er_anova <- readRDS("manuscript/R/output/results_n_er_anova.rds")
-names <- readRDS("manuscript/R/output/names.rds")
-pred_quad_models <- readRDS("manuscript/R/output/pred_quad_models.rds")
+data_evening <- readRDS(here::here("manuscript/R/output/data_evening_clean.rds")) #Load data
+all_estimates <- readRDS(here::here("manuscript/R/output/all_estimates.rds"))
+fits.n <- readRDS(here::here("manuscript/R/output/fits.n.rds"))
+results_n_er_anova <- readRDS(here::here("manuscript/R/output/results_n_er_anova.rds"))
+names <- readRDS(here::here("manuscript/R/output/names.rds"))
+pred_quad_models <- readRDS(here::here("manuscript/R/output/pred_quad_models.rds"))
 
 # Figures ----
 
@@ -77,7 +77,11 @@ vio <- ggarrange(vio_em,vio_er,
                  ncol = 1, nrow = 2,
                  widths = 10, heights = 20)
 
-ggsave("manuscript/vio_apa.png", vio, width = 6, height = 7.5)
+#Show figure
+vio
+
+#save figure
+ggsave(here::here("manuscript/vio_apa.png"), vio, width = 6, height = 7.5)
 
 
 ## Multilevel Figure ----
@@ -108,73 +112,79 @@ data_evening$pred.n.cont.dbc.swi <- predict(fits.n$n.em.cont.c.BrayCurtisRepl.am
 
 ## GGPlot for linear multilevel model - negative emotion intensity - significant
 ggplot_mlm_lin_n_int <- function(x, y,ylab) {
-  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray"), legend=FALSE) +
+  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray")) +
     geom_smooth(method=lm, formula = y ~ x, se=FALSE, fullrange=FALSE, lty=1, linewidth=.5, color="gray40") +
     geom_smooth(aes(group=1), method=lm, formula = y ~ x, se=TRUE, fullrange=FALSE, lty=1, linewidth=2, color="blue") +
     xlab("Negative emotion intensity") + ylab(ylab) +
     papaja::theme_apa() +
     theme(axis.title = element_text(size = 20),
-          axis.text = element_text(size = 20)) +
+          axis.text = element_text(size = 20),
+          legend.position = "none") +
     ylim(0, 10) +
     xlim(-8, 8)  }
 
 ## GGPlot for quadratic multilevel model - negative emotion intensity
 ggplot_mlm_qua_n_int <- function(x, y,ylab) {
-  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray"), legend=FALSE) +
+  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray")) +
     geom_smooth(method=lm, formula = y ~ x + I(x^2), se=FALSE, fullrange=FALSE, lty=1, linewidth=.5, color="gray40") +
     geom_smooth(aes(group=1), method=lm, formula = y ~ x + I(x^2), se=TRUE, fullrange=FALSE, lty=1, linewidth=2, color="blue") +
     xlab("Negative emotion intensity") + ylab(ylab) +
     papaja::theme_apa() +
     theme(axis.title = element_text(size = 20),
-          axis.text = element_text(size = 20)) +
+          axis.text = element_text(size = 20),
+          legend.position = "none") +
     ylim(0, 10) +
     xlim(-8, 8)}
 
 ## GGPlot for multilevel model - negative emotion intensity - non-significant
 ggplot_mlm_n_int_ns <- function(x, y,ylab) {
-  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray"), legend=FALSE) +
+  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray")) +
     geom_smooth(method=lm, formula = y ~ x + I(x^2), se=FALSE, fullrange=FALSE, lty=1, linewidth=.5, color="gray40") +
     #  geom_smooth(aes(group=1), method=lm, formula = y ~ x, se=TRUE, fullrange=FALSE, lty=2, linewidth=0.5, color="black") +
     xlab("Negative emotion intensity") + ylab(ylab) +
     papaja::theme_apa() +
     theme(axis.title = element_text(size = 20),
-          axis.text = element_text(size = 20)) +
+          axis.text = element_text(size = 20),
+          legend.position = "none") +
     ylim(0, 10) +
     xlim(-8, 8)}
 
 ## GGPlot for linear multilevel model - negative emotion controllability
 ggplot_mlm_lin_n_cont <- function(x, y,ylab) {
-  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray"), legend=FALSE) +
+  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray")) +
     geom_smooth(method=lm, formula = y ~ x, se=FALSE, fullrange=FALSE, lty=1, linewidth=.5, color="gray40") +
     geom_smooth(aes(group=1), method=lm, formula = y ~ x, se=TRUE, fullrange=FALSE, lty=1, linewidth=2, color="blue") +
     xlab("Negative emotion controllability") + ylab(ylab) +
     papaja::theme_apa() +
     theme(axis.title = element_text(size = 20),
-          axis.text = element_text(size = 20)) +
+          axis.text = element_text(size = 20),
+          legend.position = "none") +
     ylim(0, 10) +
     xlim(-8, 8)}
 
 ## GGPlot for quadratic multilevel model - negative emotion controllability
 ggplot_mlm_qua_n_cont <- function(x, y,ylab) {
-  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray"), legend=FALSE) +
+  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray")) +
     geom_smooth(method=lm, formula = y ~ x + I(x^2), se=FALSE, fullrange=FALSE, lty=1, linewidth=.5, color="gray40") +
     geom_smooth(aes(group=1), method=lm, formula = y ~ x + I(x^2), se=TRUE, fullrange=FALSE, lty=1, linewidth=2, color="blue") +
     xlab("Negative emotion controllability") + ylab(ylab) +
     papaja::theme_apa() +
     theme(axis.title = element_text(size = 20),
-          axis.text = element_text(size = 20)) +
+          axis.text = element_text(size = 20),
+          legend.position = "none") +
     ylim(0, 10) +
     xlim(-8, 8)}
 
 ## GGPlot for linear multilevel model - negative emotion controllability - non-significant
 ggplot_mlm_n_cont_ns <- function(x, y,ylab) {
-  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray"), legend=FALSE) +
+  ggplot(data=data_evening, aes(x=x, y=y, group=factor(participant.ID), colour="gray")) +
     geom_smooth(method=lm, formula = y ~ x + I(x^2), se=FALSE, fullrange=FALSE, lty=1, linewidth=.5, color="gray40") +
     #  geom_smooth(aes(group=1), method=lm, formula = y ~ x, se=TRUE, fullrange=FALSE, lty=2, linewidth=0.5, color="black") +
     xlab("Negative emotion controllability") + ylab(ylab) +
     papaja::theme_apa() +
     theme(axis.title = element_text(size = 20),
-          axis.text = element_text(size = 20)) +
+          axis.text = element_text(size = 20),
+          legend.position = "none") +
     ylim(0, 10) +
     xlim(-8, 8)}
 
@@ -224,8 +234,13 @@ mlm.plots.er.cont <- ggarrange(plot.n.cont.rel + theme(axis.title.x = element_bl
                                nrow = 4, ncol = 2,
                                widths = 10, heights = 10)
 
-ggsave("manuscript/mlm_plots_er_int.png", mlm.plots.er.int, width = 15, height = 15)
-ggsave("manuscript/mlm_plots_er_cont.png", mlm.plots.er.cont, width = 15, height = 15)
+# Show figures
+mlm.plots.er.int
+mlm.plots.er.cont
+
+# Save figures
+ggsave(here::here("manuscript/mlm_plots_er_int.png"), mlm.plots.er.int, width = 15, height = 15)
+ggsave(here::here("manuscript/mlm_plots_er_cont.png"), mlm.plots.er.cont, width = 15, height = 15)
 
 # Tables ----
 ## Functions ----
@@ -314,6 +329,9 @@ coefs.n.adj[ ,1] <- names$n.outcome.names[c(1:7)]
 ### Rename columns
 colnames(coefs.n.adj) <- names$mlm.columns
 
+# Show table
+coefs.n.adj
+
 ### Coefficients Interaction ----
 coefs.mod.adj <- all_estimates %>%
   slice(33:38) %>% 
@@ -327,6 +345,9 @@ coefs.mod.adj[ ,1] <- names$n.outcome.names[1:6]
 
 # Rename columns
 colnames(coefs.mod.adj) <- names$mlm.columns[1:4]
+
+# Show table
+coefs.mod.adj
 
 ## AIC/BIC table ----
 
@@ -354,6 +375,9 @@ aic_bic_table[ ,1] <- names$n.outcome.names
 # Rename columns
 colnames(aic_bic_table) <- anova.columns
 
+# Show table
+aic_bic_table
+
 ## Coefficients Bray Curtis Endorsement Change only ----
 coefs.n.end.lin.adj <- all_estimates %>%
   slice(c(8, 16)) %>%
@@ -368,6 +392,9 @@ coefs.n.end.qua.adj <- all_estimates %>%
   select(est, SE, p)
 
 coefs.n.end.adj <- cbind(coefs.n.end.lin.adj, coefs.n.end.qua.adj)
+
+# Show table
+coefs.n.end.adj
 
 ### Rename columns
 colnames(coefs.n.end.adj) <- names$mlm.columns[1:7]
@@ -384,15 +411,18 @@ pred_quad_table <- pred_quad_models %>%
 ### Rename columns
 colnames(pred_quad_table) <- c("Model (Predictor - Outcome)", "Low (-2 SD)", "Mean", "High (+2 SD)")
 
+# Show table
+pred_quad_table
+
 # Save processed files and outputs ----
 
 coefs.mod.adj <- list(
   coefs.mod.adj=coefs.mod.adj,
   sig_mod_adj=sig_mod_adj)
 
-saveRDS(coefs.n.adj,  "manuscript/R/output/coefs.n.adj.rds")
-saveRDS(coefs.mod.adj,  "manuscript/R/output/coefs.mod.adj.rds")
-saveRDS(aic_bic_table,  "manuscript/R/output/aic_bic_table.rds")
-saveRDS(coefs.n.end.adj, "manuscript/R/output/coefs.n.end.adj.rds")
-saveRDS(pred_quad_table, "manuscript/R/output/pred_quad_table.rds")
+saveRDS(coefs.n.adj,  here::here("manuscript/R/output/coefs.n.adj.rds"))
+saveRDS(coefs.mod.adj,  here::here("manuscript/R/output/coefs.mod.adj.rds"))
+saveRDS(aic_bic_table,  here::here("manuscript/R/output/aic_bic_table.rds"))
+saveRDS(coefs.n.end.adj, here::here("manuscript/R/output/coefs.n.end.adj.rds"))
+saveRDS(pred_quad_table, here::here("manuscript/R/output/pred_quad_table.rds"))
 

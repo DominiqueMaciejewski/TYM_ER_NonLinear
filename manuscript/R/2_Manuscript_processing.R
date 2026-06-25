@@ -9,12 +9,12 @@
 # Email: d.f.maciejewski@tilburguniversity.edu
 #
 
-# Setup ----------------------------------------------
-source("manuscript/R/1_Manuscript_setup.R")
+# Setup ----------------------------------
+source(here::here("manuscript/R/1_Manuscript_setup.R"))
 here::i_am("manuscript/R/2_Manuscript_processing.R") #Set location of script
 
 # Read in data ----
-data_evening <- read.csv("data_evening.csv")
+data_evening <- read.csv(here::here("data_evening.csv"))
 
 # Rescale VAS scales to 0-10 ---------------------
 divide_by_10 <- function(x) {
@@ -138,7 +138,7 @@ check.nodup(obs.evening, participant.ID, data=data_evening)
 
 # Bray-Curtis dissimilarity for ER Variability -------
 # Load code for Bray-Curtis dissimilarity. Code was downloaded from https://github.com/taktsun/dissimilarity-for-ESM-data (file: BrayCurtisDissimilarity_Calculate.R)
-source("manuscript/R/BrayCurtisDissimilarity_Calculate.R")
+source(here::here("manuscript/R/BrayCurtisDissimilarity_Calculate.R"))
 
 # sort by participant and beepnumber
 data_evening <- data_evening  %>%
@@ -205,7 +205,7 @@ sample_flow <- list(
   n_drop = n_drop
 )
 
-saveRDS(sample_flow, "manuscript/R/output/sample_flow.rds")
-saveRDS(data_person,  "manuscript/R/output/data_person_clean.rds")
-saveRDS(data_evening,  "manuscript/R/output/data_evening_clean.rds")
+saveRDS(sample_flow, here::here("manuscript/R/output/sample_flow.rds"))
+saveRDS(data_person,  here::here("manuscript/R/output/data_person_clean.rds"))
+saveRDS(data_evening, here::here("manuscript/R/output/data_evening_clean.rds"))
 

@@ -14,7 +14,7 @@ You can load this project in RStudio by opening the file called `TYM_ER_NonLinea
 
 The analytical dataset is hosted on a university data repository operated under the [FAIR principles](https://www.go-fair.org/fair-principles/):
 
-<https://doi.org/10.34973/s90j-0r08> (Reserved DOI, files timestamped; link active upon manuscript acceptance).
+<https://doi.org/10.34973/s90j-0r08>
 
 The data file you need to download is called `data_evening.csv` and needs to be added into the parent folder `TYM_ER_context` (i.e., not into a subfolder!).
 
@@ -137,43 +137,23 @@ For instance, I call the results from the script `Power-analyses.R`, which conta
 
 ## Reproducibility
 
-Reproduce the results by these 5 steps.
+Reproduce the results by these steps.
 
 1.  Install RStudio and R.
 
-2.  Install WORCS dependencies.
+2.  [Clone](https://cjvanlissa.github.io/worcs/articles/reproduce.html#obtaining-the-project-repository) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
 
-    `install.packages("worcs", dependencies = TRUE)`\
-    `tinytex::install_tinytex()`\
-    `renv::consent(provided = TRUE)`
-    
-    *Note*: See <https://cjvanlissa.github.io/worcs/articles/setup.html> for more information on this step.
+3.  To reproduce the power analyses, run the `preregistration/Power-analyses.R` and knit the `preregistration/preregistration.Rmd` file.
 
-3.  [Clone](https://resources.github.com/github-and-rstudio/#:~:text=Clone%20the%20repository%20with%20RStudio&text=On%20GitHub%2C%20navigate%20to%20the,RStudio%20on%20your%20local%20environment.) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
-
-4.  Restore the package dependencies
-
-    a.  Run the code `renv::restore()`.
-        Choose Option 1 `"1: Activate the project and use the project library"`
-
-    b.  Then, install the package `PowerAnalysisIL` from Ginette Lafit directly with the code detailed on <https://github.com/ginettelafit/PowerAnalysisIL>.
-        That package is used for the power analyses for the pre-registration.
-        When I tried to reproduce the analyses, this package did not load with the `renv::restore` function.
-        So, my work around is to install that package myself
-
-    c.  Run `renv::restore()`.
-        Type `y` when asked whether you want to proceed.
-
-    d.  Run `renv::status()` which should state `No issues found -- the project is in a consistent state.` Then you can proceed to step 5.
-
-5.  To reproduce the power analyses, run the `preregistration/Power-analyses.R` and knit the `preregistration/preregistration.Rmd` file.
-
-6.  To reproduce the manuscript including the results, run the R scripts in the order of presentation (i.e., starting with `1_Manuscript_setup.R` and ending with `6_Manuscript_supplementary.R`).
+4.  To reproduce the manuscript including the results, run the R scripts in the order of presentation (i.e., starting with `1_Manuscript_setup.R` and ending with `6_Manuscript_supplementary.R`. You do not need to run the script `0_Manuscript_data-prep`. This was just for me to prepare the dataset for sharing).
     Then, knit the `manuscript/manuscript.Rmd` file and `manuscript/supplementary_materials.Rmd`.
 
-    **Note:** The analyses were conducted in `R 4.3.1.` with `Rtools 4.3`.
-    If you want to reproduce the results, it may be necessary for you to re-install R `version 4.3` and `Rtools 4.3` .
-
+    *Note:* In an earlier version of this GitHub repo, I worked with the `renv` package to restore the exact package dependencies used in the analyses. 
+    However, I personally found that there were always issues when trying to activate the project.
+    So, I decided to not use this package anymore and instead give all the versions of packages used in `sessionInfo()` 
+    (found in the file `1_Manuscript_setup.R`). 
+    Given that the analyses here are relatively standard multilevel models, I do not expect different results with different packages.
+    
 # Reproducibility
 
 This project uses the Workflow for Open Reproducible Code in Science (WORCS) to ensure transparency and reproducibility.

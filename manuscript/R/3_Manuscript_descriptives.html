@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="maciejew" />
 
+<meta name="date" content="2026-06-25" />
 
-<title>README</title>
+<title>3_Manuscript_descriptives.R</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -348,580 +350,714 @@ display: none;
 
 
 
+<h1 class="title toc-ignore">3_Manuscript_descriptives.R</h1>
+<h4 class="author">maciejew</h4>
+<h4 class="date">2026-06-25</h4>
 
 </div>
 
 
-<div id="readme" class="section level1">
-<h1>Readme
-<a href="https://osf.io/zcvbs/"><img role="img" src="data:image/png;base64,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" align="right" height="139" /></a></h1>
-<p>This is the github of the manuscript “Too Little, Too Much: Evidence
-for Quadratic Patterns in Emotion Regulation Strategy Use in Daily
-Life”. Here, you can reproduce all analyses and documents from the
-pre-registration and manuscript.</p>
-<p>The raw data from Medland et al. (2020) was downloaded from <a href="https://osf.io/uqg23/" class="uri">https://osf.io/uqg23/</a> on
-March 24, 2023 and can be found under
-<code>raw data/RESSEMA_data.dat</code>. Those data were used for the
-power analyses.</p>
-<div id="where-do-i-start" class="section level2">
-<h2>Where do I start?</h2>
-<p>You can load this project in RStudio by opening the file called
-<code>TYM_ER_NonLinear.Rproj</code>.</p>
-</div>
-<div id="access-to-data" class="section level2">
-<h2>Access to data</h2>
-<p>The analytical dataset is hosted on a university data repository
-operated under the <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a>:</p>
-<p><a href="https://doi.org/10.34973/s90j-0r08" class="uri">https://doi.org/10.34973/s90j-0r08</a></p>
-<p>The data file you need to download is called
-<code>data_evening.csv</code> and needs to be added into the parent
-folder <code>TYM_ER_context</code> (i.e., not into a subfolder!).</p>
-</div>
-<div id="project-structure" class="section level2">
-<h2>Project structure</h2>
-<div id="folder-tym_er_context-parent-folder" class="section level3">
-<h3>Folder “TYM_ER_context” (parent folder)</h3>
-<p>Contains data files and associated information (codebooks). Also
-contains other read-only files (e.g., licenses).</p>
-<p>When downloading the data from the repository, you need to add the
-data file to this parent folder.</p>
-<table>
-<colgroup>
-<col width="36%" />
-<col width="36%" />
-<col width="27%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>File</strong></td>
-<td><strong>Description</strong></td>
-<td><strong>Usage</strong></td>
-</tr>
-<tr class="even">
-<td>.gitignore</td>
-<td>Gitignore file</td>
-<td>Read only</td>
-</tr>
-<tr class="odd">
-<td>.worcs</td>
-<td>WORCS metadata YAML</td>
-<td>Read only</td>
-</tr>
-<tr class="even">
-<td>codebook_data_evening</td>
-<td>Codebook &amp; metadata dataset Track your Mood</td>
-<td>Read only</td>
-</tr>
-<tr class="odd">
-<td>codebook_ressema_df</td>
-<td>Codebook &amp; metadata dataset Medland (2020)</td>
-<td>Read only</td>
-</tr>
-<tr class="even">
-<td>LICENSE</td>
-<td>User permissions</td>
-<td>Read only</td>
-</tr>
-<tr class="odd">
-<td>README.md</td>
-<td>Description of project</td>
-<td>Human editable</td>
-</tr>
-<tr class="even">
-<td>renv.lock</td>
-<td>Reproducible R environment</td>
-<td>Read only</td>
-</tr>
-<tr class="odd">
-<td>ressema_df.csv</td>
-<td>Dataset Medland et al. (2020) - for power analyses</td>
-<td>Read only</td>
-</tr>
-<tr class="even">
-<td>TYM_ER_NonLinear.Rproj</td>
-<td>Project file</td>
-<td>Loads project</td>
-</tr>
-<tr class="odd">
-<td>value_labels_data_evening.yml</td>
-<td>Value labels dataset Track your mood</td>
-<td>Read only</td>
-</tr>
-<tr class="even">
-<td>value_labels_RESSEMA_df</td>
-<td>Value labels dataset Medland (2020)</td>
-<td>Read only</td>
-</tr>
-<tr class="odd">
-<td>worcs_icon.png</td>
-<td>Worcs icon</td>
-<td>Read only</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="folder-manuscript" class="section level3">
-<h3>Folder “manuscript”</h3>
-<p>Contains all files relevant to the manuscript. All text for the
-manuscript are in the file <code>manuscript.Rmd</code>. All text for the
-supplementary material are in the file
-<code>supplementary_materials.Rmd</code>.</p>
-<p>All other files are either called or created in this script.</p>
-<p>Please run the scripts in the order of presentation (i.e., starting
-with <code>1_Manuscript_setup.R</code> and ending with
-<code>6_Manuscript_supplementary.R</code>). You cannot run the file
-<code>0_Manuscript_data-prep.R</code> because this contains the raw data
-with still identifying information (that data file is not shared).</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">File</th>
-<th align="left"><strong>Description</strong></th>
-<th align="left"><strong>Usage</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">apa.csl</td>
-<td align="left">APA 7 citation format</td>
-<td align="left">Read only</td>
-</tr>
-<tr class="even">
-<td align="left">ERVariability_explained.png</td>
-<td align="left">Plot explaining Bray-Curtis ER Variability</td>
-<td align="left">Read only</td>
-</tr>
-<tr class="odd">
-<td align="left">figure1_negERonly.png</td>
-<td align="left">Plot study design</td>
-<td align="left">Read only</td>
-</tr>
-<tr class="even">
-<td align="left">manuscript.pdf</td>
-<td align="left">Knitted pdf file of paper</td>
-<td align="left">Read only - changes through source code
-manuscript.Rmd</td>
-</tr>
-<tr class="odd">
-<td align="left">manuscript.Rmd</td>
-<td align="left">Source code for paper</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">mlm_plots_er_cont.png</td>
-<td align="left">Plot multilevel model intensity</td>
-<td align="left">Read only - changes through source code
-manuscript.Rmd</td>
-</tr>
-<tr class="odd">
-<td align="left">mlm_plots_er_int.png</td>
-<td align="left">Plot multilevel model controllability</td>
-<td align="left">Read only - changes through source code
-manuscript.Rmd</td>
-</tr>
-<tr class="even">
-<td align="left">supplementary_materials.pdf</td>
-<td align="left">Knitted pdf file of supplementary materials</td>
-<td align="left">Read only - changes through source code
-supplementary_materials.Rmd</td>
-</tr>
-<tr class="odd">
-<td align="left">supplementary_materials.Rmd</td>
-<td align="left">Source code for supplementary materials</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">TYMCon_r-references.bib</td>
-<td align="left">BibTex references of R packages for manuscript</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="odd">
-<td align="left">TYMCon_references.bib</td>
-<td align="left">BibTex references for manuscript</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">vio_apa.png</td>
-<td align="left">Violin plots</td>
-<td align="left">Read only - changes through source code
-manuscript.Rmd</td>
-</tr>
-</tbody>
-</table>
-<div id="subfolder-r" class="section level4">
-<h4>Subfolder “R”</h4>
-<p>The Subfolder <code>manuscript/R</code> contains all <code>R</code>
-analyses files.</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">File</th>
-<th align="left"><strong>Description</strong></th>
-<th align="left"><strong>Usage</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0_Manuscript_data-prep.R</td>
-<td align="left">R script for preparing data set for sharing</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">1_Manuscript_setup.R</td>
-<td align="left">R script for analyses setup (e.g., libraries,
-options)</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="odd">
-<td align="left">2_Manuscript_processing.R</td>
-<td align="left">R script for data processing (data checks etc)</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">3_Manuscript_descriptives.R</td>
-<td align="left">R script for participant characteristics and
-descriptive statistics</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="odd">
-<td align="left">4_Manuscript_multilevel.R</td>
-<td align="left">R script for multilevel models (main analyses)</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">5_Manuscript_figures-tables.R</td>
-<td align="left">R script for creating figures and tables</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="odd">
-<td align="left">6_Manuscript_supplementary.R</td>
-<td align="left">R script for conducting supplementary analyses</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">BrayCurtisDissimilarity_Calculate.R</td>
-<td align="left">R script to calculate Bray Curtis dissimilarity
-scores</td>
-<td align="left">Human editable</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="subfolder-output" class="section level4">
-<h4>Subfolder “output”</h4>
-<p>The subfolder <code>manuscript/R/output</code> contains saved
-<code>R</code>-objects that I call in the manuscript and supplementary
-text files. I added the descripton here, but they not included in this
-repo, but will be created when you run the <code>R</code> scripts.</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">File</th>
-<th align="left"><strong>Description</strong></th>
-<th align="left"><strong>Usage</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">aic_bic_table.rds</td>
-<td align="left">Formatted table on linear versus quadratic model
-comparisons (saved R object)</td>
-<td align="left">Read only - changes through source code
-5_Manuscript_figures-tables.R</td>
-</tr>
-<tr class="even">
-<td align="left">all_estimates.rds</td>
-<td align="left">All estimates from multilevel models (saved R
-object)</td>
-<td align="left">Read only - changes through source code
-4_Manuscript_multilevel.R</td>
-</tr>
-<tr class="odd">
-<td align="left">coefs.mod.adj.rds</td>
-<td align="left">Coefficients interaction test - formatted for table
-(saved R object)</td>
-<td align="left">Read only - changes through source code
-5_Manuscript_figures-tables.R</td>
-</tr>
-<tr class="even">
-<td align="left">coefs.n.adj.rds</td>
-<td align="left">Coefficients multilevel results test reported in
-manuscript - formatted for table (saved R object)</td>
-<td align="left">Read only - changes through source code
-5_Manuscript_figures-tables.R</td>
-</tr>
-<tr class="odd">
-<td align="left">coefs.n.end.adj.rds</td>
-<td align="left">Coefficients multilevel endorsement change only -
-formatted for table (saved R object) - for supplement</td>
-<td align="left">Read only - changes through source code
-5_Manuscript_figures-tables.R</td>
-</tr>
-<tr class="even">
-<td align="left">coefs.p.adj.rds</td>
-<td align="left">Coefficients multilevel positive ER only (saved R
-object) - for supplement</td>
-<td align="left">Read only - changes through source code
-6_Manuscript_supplementary.R</td>
-</tr>
-<tr class="odd">
-<td align="left">correlation.xlsx</td>
-<td align="left">Correlation matrix that was created in manuscript
-script</td>
-<td align="left">Human editable - changes through source code
-3_Manuscript_descriptives.R</td>
-</tr>
-<tr class="even">
-<td align="left">data_evening_clean.rds</td>
-<td align="left">Processed dataset (saved R object)</td>
-<td align="left">Read only - changes through source code
-2_Manuscript_processing.R</td>
-</tr>
-<tr class="odd">
-<td align="left">data_person_clean.rds</td>
-<td align="left">Processed dataset - person-level aggregated (saved R
-object)</td>
-<td align="left">Read only - changes through source code
-2_Manuscript_processing.R</td>
-</tr>
-<tr class="even">
-<td align="left">descriptives.rds</td>
-<td align="left">Descriptive and participant information characteristics
-(saved R object)</td>
-<td align="left">Read only - changes through source code
-3_Manuscript_descriptives.R</td>
-</tr>
-<tr class="odd">
-<td align="left">fits.n.rds</td>
-<td align="left">Fits from multilevel models (saved R object)</td>
-<td align="left">Read only - changes through source code
-4_Manuscript_multilevel.R</td>
-</tr>
-<tr class="even">
-<td align="left">names.rds</td>
-<td align="left">Several names used for table creation (saved R
-object)</td>
-<td align="left">Read only - changes through source code
-4_Manuscript_multilevel.R</td>
-</tr>
-<tr class="odd">
-<td align="left">pred_quad_models.rds</td>
-<td align="left">Coefficients predicted values for models with
-significant quadratic effects (saved R object)</td>
-<td align="left">Read only - changes through source code
-4_Manuscript_multilevel.R</td>
-</tr>
-<tr class="even">
-<td align="left">pred_quad_table.rds</td>
-<td align="left">Coefficients predicted values for models with
-significant quadratic effects - formatted for table (saved R
-object)</td>
-<td align="left">Read only - changes through source code
-5_Manuscript_figures-tables.R</td>
-</tr>
-<tr class="odd">
-<td align="left">results_n_er_anova.rds</td>
-<td align="left">Results from linear versus quadratic model comparisons
-(saved R object)</td>
-<td align="left">Read only - changes through source code
-4_Manuscript_multilevel.R</td>
-</tr>
-<tr class="even">
-<td align="left">sample_flow.rds</td>
-<td align="left">Information of sample flow (before and after excluding
-participants) (saved R object)</td>
-<td align="left">Read only - changes through source code
-2_Manuscript_processing.R</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="folder-pre-registration" class="section level3">
-<h3>Folder “pre-registration”</h3>
-<p>Contains all files relevant to the pre-registration. All text and
-analyses for the pre-registration are in the file
-<code>preregistration.Rmd</code>. All other files are either called or
-created in this script. For instance, I call the results from the script
-<code>Power-analyses.R</code>, which contain the simulation study for
-the power-analysis.</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">File</th>
-<th align="left">Description</th>
-<th align="left">Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">apa.csl</td>
-<td align="left">APA 7 citation format</td>
-<td align="left">Read only</td>
-</tr>
-<tr class="even">
-<td align="left">figure1.jpg</td>
-<td align="left">Plot study design</td>
-<td align="left">Read only</td>
-</tr>
-<tr class="odd">
-<td align="left">power_emo_control.xlsx</td>
-<td align="left">Results power analyses emotional control</td>
-<td align="left">Read only - changes through through source code
-Power-analyses.R</td>
-</tr>
-<tr class="even">
-<td align="left">power_emo_intensity.xlsx</td>
-<td align="left">Results power analyses emotional intensity</td>
-<td align="left">Read only - changes through through source code
-Power-analyses.R</td>
-</tr>
-<tr class="odd">
-<td align="left">Power-analyses.R</td>
-<td align="left">Script for power analyses</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">Power-analyses_prepare_data.R</td>
-<td align="left">Script to process raw data from Medland et
-al. (2020)</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="odd">
-<td align="left">preregistration.rmd</td>
-<td align="left">Source code for pre-registration</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="even">
-<td align="left">preregistration.docx</td>
-<td align="left">Word file of pre-registration</td>
-<td align="left">Read only - changes through source code .Rmd</td>
-</tr>
-<tr class="odd">
-<td align="left">preregistration.pdf</td>
-<td align="left">PDF file of pre-registration</td>
-<td align="left">Read only - changes through source code .Rmd</td>
-</tr>
-<tr class="even">
-<td align="left">references_prereg.bib</td>
-<td align="left">BibTex references for pre-registration</td>
-<td align="left">Human editable</td>
-</tr>
-<tr class="odd">
-<td align="left">wordtemplate.docx</td>
-<td align="left">Wordtemplate for knitting .rmd file</td>
-<td align="left">Human editable</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="other-files" class="section level3">
-<h3>Other files</h3>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">File</th>
-<th align="left">Description</th>
-<th align="left">Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">raw data/RESSEMA_data.dat</td>
-<td align="left">RESS data Medland et al. (2020) - for power
-analyses</td>
-<td align="left">Read only</td>
-</tr>
-<tr class="even">
-<td align="left">raw data/RESSEMA_data.dat</td>
-<td align="left">RESS codebook Medland et al. (2020) - for power
-analyses</td>
-<td align="left">Read only</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="reproducibility" class="section level2">
-<h2>Reproducibility</h2>
-<p>Reproduce the results by these steps.</p>
-<ol style="list-style-type: decimal">
-<li><p>Install RStudio and R.</p></li>
-<li><p><a href="https://cjvanlissa.github.io/worcs/articles/reproduce.html#obtaining-the-project-repository">Clone</a>
-this repo (<a href="https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git" class="uri">https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git</a>)
-to your RStudio</p></li>
-<li><p>To reproduce the power analyses, run the
-<code>preregistration/Power-analyses.R</code> and knit the
-<code>preregistration/preregistration.Rmd</code> file.</p></li>
-<li><p>To reproduce the manuscript including the results, run the R
-scripts in the order of presentation (i.e., starting with
-<code>1_Manuscript_setup.R</code> and ending with
-<code>6_Manuscript_supplementary.R</code>. You do not need to run the
-script <code>0_Manuscript_data-prep</code>. This was just for me to
-prepare the dataset for sharing). Then, knit the
-<code>manuscript/manuscript.Rmd</code> file and
-<code>manuscript/supplementary_materials.Rmd</code>.</p>
-<p><em>Note:</em> In an earlier version of this GitHub repo, I worked
-with the <code>renv</code> package to restore the exact package
-dependencies used in the analyses. However, I personally found that
-there were always issues when trying to activate the project. So, I
-decided to not use this package anymore and instead give all the
-versions of packages used in <code>sessionInfo()</code> (found in the
-file <code>1_Manuscript_setup.R</code>). Given that the analyses here
-are relatively standard multilevel models, I do not expect different
-results with different packages.</p></li>
-</ol>
-</div>
-</div>
-<div id="reproducibility-1" class="section level1">
-<h1>Reproducibility</h1>
-<p>This project uses the Workflow for Open Reproducible Code in Science
-(WORCS) to ensure transparency and reproducibility. The workflow is
-designed to meet the principles of Open Science throughout a research
-project.</p>
-<p>To learn how WORCS helps researchers meet the TOP-guidelines and FAIR
-principles, read the preprint at <a href="https://osf.io/zcvbs/" class="uri">https://osf.io/zcvbs/</a></p>
-<div id="worcs-advice-for-authors" class="section level2">
-<h2>WORCS: Advice for authors</h2>
-<ul>
-<li>To get started with <code>worcs</code>, see the <a href="https://cjvanlissa.github.io/worcs/articles/setup.html">setup
-vignette</a></li>
-<li>For detailed information about the steps of the WORCS workflow, see
-the <a href="https://cjvanlissa.github.io/worcs/articles/workflow.html">workflow
-vignette</a></li>
-</ul>
-</div>
-<div id="worcs-advice-for-readers" class="section level2">
-<h2>WORCS: Advice for readers</h2>
-<p>Please refer to the vignette on <a href>reproducing a WORCS
-project</a> for step by step advice.</p>
-</div>
-</div>
+<pre class="r"><code># Script name: 3. Manuscript - descriptives
+# Description: Script for participant characteristics and descriptives
+# Author: Dr. Dominique Maciejewski
+#
+# Date Created: 2025-04-10
+#
+# Copyright (c) Dominique Maciejewski
+# Email: d.f.maciejewski@tilburguniversity.edu
+#
+
+# Setup ----
+source(here::here(&quot;manuscript/R/1_Manuscript_setup.R&quot;))</code></pre>
+<pre><code>## Loading required package: tinylabels</code></pre>
+<pre><code>## Warning: package &#39;tinylabels&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## [0;34mWelcome to WORCS: Workflow for Open Reproducible Code in Science. Please read the tutorial before using this package, and consider citing it:
+##   Van Lissa and colleagues (2020) &lt;doi:10.3233/DS-210031&gt;[0m</code></pre>
+<pre><code>## here() starts at C:/Users/maciejew/OneDrive - Tilburg University/1_Research/1_Papers/Ongoing/TYM_ER_Context</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## Warning: package &#39;plyr&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## ------------------------------------------------------------------------------</code></pre>
+<pre><code>## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)</code></pre>
+<pre><code>## ------------------------------------------------------------------------------</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize</code></pre>
+<pre><code>## The following object is masked from &#39;package:here&#39;:
+## 
+##     here</code></pre>
+<pre><code>## 
+## Attaching package: &#39;esmpack&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     rename</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     rename</code></pre>
+<pre><code>## |-------------------------------------|
+## | misty 0.5.4 (2023-11-14)            |
+## | Miscellaneous Functions T. Yanagida |
+## |-------------------------------------|</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nlme&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     collapse</code></pre>
+<pre><code>## Loading required package: lme4</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Matrix&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:tidyr&#39;:
+## 
+##     expand, pack, unpack</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lme4&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:nlme&#39;:
+## 
+##     lmList</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lmerTest&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lme4&#39;:
+## 
+##     lmer</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     step</code></pre>
+<pre><code>## 
+## Attaching package: &#39;flextable&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:papaja&#39;:
+## 
+##     theme_apa</code></pre>
+<pre><code>## Suggested APA citation: Thériault, R. (2023). rempsyc: Convenience functions for psychology. 
+## Journal of Open Source Software, 8(87), 5466. https://doi.org/10.21105/joss.05466</code></pre>
+<pre><code>## Warning: package &#39;Hmisc&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Hmisc&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:misty&#39;:
+## 
+##     na.pattern</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     describe</code></pre>
+<pre><code>## The following objects are masked from &#39;package:plyr&#39;:
+## 
+##     is.discrete, summarize</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     src, summarize</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     format.pval, units</code></pre>
+<pre><code>## Warning: package &#39;ggpubr&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggplot2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:sjPlot&#39;:
+## 
+##     set_theme</code></pre>
+<pre><code>## The following objects are masked from &#39;package:psych&#39;:
+## 
+##     %+%, alpha</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;car&#39;:
+##   method           from
+##   na.action.merMod lme4</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggpubr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:flextable&#39;:
+## 
+##     border, font, rotate</code></pre>
+<pre><code>## The following object is masked from &#39;package:plyr&#39;:
+## 
+##     mutate</code></pre>
+<pre><code>## Warning: package &#39;reghelper&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reghelper&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:psych&#39;:
+## 
+##     ICC</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     beta</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     smiths</code></pre>
+<pre><code>## Welcome to emmeans.
+## Caution: You lose important information if you filter this package&#39;s results.
+## See &#39;? untidy&#39;</code></pre>
+<pre><code>## here() starts at C:/Users/maciejew/OneDrive - Tilburg University/1_Research/1_Papers/Ongoing/TYM_ER_Context</code></pre>
+<pre class="r"><code>here::i_am(&quot;manuscript/R/3_Manuscript_descriptives.R&quot;) #Set location of script</code></pre>
+<pre><code>## here() starts at C:/Users/maciejew/OneDrive - Tilburg University/1_Research/1_Papers/Ongoing/TYM_ER_Context</code></pre>
+<pre class="r"><code>data_evening &lt;- readRDS(here::here(&quot;manuscript/R/output/data_evening_clean.rds&quot;))
+data_person  &lt;- readRDS(here::here(&quot;manuscript/R/output/data_person_clean.rds&quot;))
+sample_flow  &lt;- readRDS(here::here(&quot;manuscript/R/output/sample_flow.rds&quot;))
+
+# Participant characteristics ----
+
+## Age ----
+Age_m &lt;- mean(data_person$Age_B, na.rm = TRUE) #mean
+Age_sd &lt;- sd(data_person$Age_B, na.rm = TRUE) #sd
+Age_min &lt;- min(data_person$Age_B, na.rm = TRUE) #minimum
+Age_max &lt;- max(data_person$Age_B, na.rm = TRUE) #maximum
+
+## Student ----
+student &lt;- (100/sample_flow$n_par_4)*(sum(data_person$Student_B == 1, na.rm = TRUE)) #Percentage students
+
+# ## Subset of participants who allow to have data shared (will only share that subset, 1=No, 2=Yes)
+# share &lt;- sum(data_person$Toest_aspect1 == 2, na.rm = TRUE)
+
+# Procedure ---
+
+## Number of beeps below 60 days ----------------
+# sent.beeps.evening includes the onboarding day, so participants that participated all days will have 61 days 
+n_beep1 &lt;- sum(data_person$sent.beeps.evening == 60) #59 days
+n_beep2 &lt;- sum(data_person$Dropped.out == 0 &amp; data_person$sent.beeps.evening &lt; 60) #fewer, due to technical error (n=0)
+n_beep3 &lt;- sum(data_person$Dropped.out == 1 &amp; data_person$sent.beeps.evening &lt; 60) #fewer, due to drop out (n=2)
+
+## Average compliance number ----------------
+comp_m &lt;- mean(data_person$comp.evening)
+comp_sd &lt;- sd(data_person$comp.evening)
+comp_min &lt;- min(data_person$comp.evening)
+comp_max &lt;- max(data_person$comp.evening)
+
+## Average compliance percentage ----------------
+comp_m_p &lt;- mean(data_person$comp.evening.per)
+comp_sd_p &lt;- sd(data_person$comp.evening.per)
+comp_min_p &lt;- min(data_person$comp.evening.per)
+comp_max_p &lt;- max(data_person$comp.evening.per)
+
+## Overall compliance ----------------
+n_sent &lt;- sum(data_person$sent.beeps.evening) #total sent beeps
+n_obs_p &lt;- (100/n_sent)*sample_flow$n_obs_4 #percentage of answered beep out of total sent beeps
+
+## Compliance across weeks ----------------
+comp_week&lt;-data_evening %&gt;%
+  dplyr::group_by(week,filledin) %&gt;%
+  dplyr::summarise(n = n()) %&gt;%
+  dplyr::mutate(Compliance = 100*(n / sum(n)))%&gt;%
+  dplyr::mutate(cum = cumsum(n))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;week&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre class="r"><code>comp1&lt;-comp_week[2,4] #percentage of valid questionnaires week 1
+comp2&lt;-comp_week[10,4] #percentage of valid questionnaires week 5
+comp3&lt;-comp_week[18,4] #percentage of valid questionnaires week 9
+
+## Individual compliance and study variables ----------------
+
+# Here I correlate number of valid assessments per individual to study variables
+# For ESM variables, I use person-level indices
+
+### Calculate within-person aggregates of ESM study variables ----
+
+# Loop over the variables and use dplyr to summarize
+data_M &lt;- data_evening %&gt;%
+  dplyr::group_by(participant.ID) %&gt;%
+  dplyr::summarize(
+    across(all_of(ESM_variables), ~mean(., na.rm = TRUE), .names = &quot;imean_{.col}&quot;))
+
+# Merge with person-level dataset
+data_person &lt;- left_join(data_person, data_M, by = &quot;participant.ID&quot;)
+
+### Association with compliance ----
+
+#### Continuous variables ----
+
+# List of columns to exclude from correlation analysis
+exclude_columns &lt;- c(&quot;participant.ID&quot;, &quot;Toest_aspect1&quot;, &quot;comp.evening&quot;, &quot;comp.evening.per&quot; , &quot;gender.dum&quot;, &quot;Student_B&quot;, &quot;sent.beeps.evening&quot;, &quot;Dropped.out&quot;)
+
+# Exclude the columns from the list of all column names
+variables_correlation &lt;- setdiff(names(data_person), exclude_columns)
+
+# Function to calculate correlation and p-value for a given variable
+correlation_with_comp_evening &lt;- function(variable) {
+  cor_test_result &lt;- cor.test(data_person$comp.evening, data_person[[variable]])
+  return(list(estimate = cor_test_result$estimate,
+              p_value = cor_test_result$p.value))
+}
+
+# Apply the function to each variable and store the results in a list
+correlation_results &lt;- lapply(variables_correlation, correlation_with_comp_evening)
+
+# Convert the list to a data frame
+correlation_df &lt;- data.frame(variable = variables_correlation,
+                             estimate = sapply(correlation_results, &quot;[[&quot;, &quot;estimate&quot;),
+                             p_value = sapply(correlation_results, &quot;[[&quot;, &quot;p_value&quot;))
+
+
+#### Categorical variables ----
+
+# Categorical variables
+variables_ttest &lt;- c(&quot;gender.dum&quot;, &quot;Student_B&quot;)
+
+# Function to calculate correlation and p-value for a given variable
+ttest_with_comp_evening &lt;- function(variable) {
+  t_test_result &lt;- t.test(data_person$comp.evening ~ data_person[[variable]])
+  return(list(estimate = t_test_result$statistic,
+              p_value = t_test_result$p.value))
+}
+
+# Apply the function to each variable and store the results in a list
+ttest_results &lt;- lapply(variables_ttest, ttest_with_comp_evening)
+
+# Convert the list to a data frame
+ttest_df &lt;- data.frame(variable = variables_ttest,
+                       estimate = sapply(ttest_results, &quot;[[&quot;, &quot;estimate&quot;),
+                       p_value = sapply(ttest_results, &quot;[[&quot;, &quot;p_value&quot;))
+
+
+### Identify significant associations ----
+
+# Merge correlation and t-test results
+comp_ass&lt;-rbind(correlation_df,ttest_df)
+
+# Add a new column indicating p-value significance
+comp_ass$significant &lt;- comp_ass$p_value &lt; 0.05
+
+# Print the resulting dataframe
+print(comp_ass)</code></pre>
+<pre><code>##           variable    estimate     p_value significant
+## 1            Age_B  0.04109134 0.724509851       FALSE
+## 2   imean_n.em.int -0.07344585 0.520051838       FALSE
+## 3  imean_n.em.cont  0.07648820 0.502865215       FALSE
+## 4   imean_n.er.rel -0.01422521 0.900976876       FALSE
+## 5   imean_n.er.eng  0.09497654 0.405070941       FALSE
+## 6   imean_n.er.rum  0.15025568 0.186257240       FALSE
+## 7  imean_n.er.reap  0.04977111 0.663131067       FALSE
+## 8   imean_n.er.dis  0.18908493 0.095131717       FALSE
+## 9   imean_n.er.sup  0.30607263 0.006083644        TRUE
+## 10      gender.dum  0.40976015 0.689186080       FALSE
+## 11       Student_B  0.10293499 0.921686962       FALSE</code></pre>
+<pre class="r"><code># Subset rows with p_value &lt; 0.05/ &gt;.05
+significant_rows &lt;- subset(comp_ass, p_value &lt; 0.05) 
+nonsignificant_rows &lt;- subset(comp_ass, p_value &gt; 0.05)
+
+# Significant results
+## Suppression
+sig_e_comp_sup &lt;- significant_rows$estimate[1]
+sig_p_comp_sup &lt;- significant_rows$p_value[1]
+
+# Non-significant results, minimum and maximum
+nsig_e_comp_ESM_min &lt;- min(nonsignificant_rows$estimate)
+nsig_e_comp_ESM_max &lt;- max(nonsignificant_rows$estimate)
+nsig_p_comp_ESM_min &lt;- min(nonsignificant_rows$p_value)
+nsig_p_comp_ESM_max &lt;- max(nonsignificant_rows$p_value)
+
+# Calculate how often most intense emotion was related to most intense event ---
+per_em_ev_rel&lt;-mean(data_evening$n.em.ev == 0,na.rm=TRUE) * 100
+
+# Descriptives of within-person means &amp; variance of ESM variables ----------------------------------------------
+
+## Setup ----
+# Create a function to calculate mean, min, max and SD of within-person means &amp; mean of within-person SD for each variable
+calculate_descriptives &lt;- function(var) {
+  mean_var &lt;- mean(data_person[[paste0(&quot;imean_&quot;, var)]], na.rm = TRUE)
+  min_var &lt;- min(data_person[[paste0(&quot;imean_&quot;, var)]], na.rm = TRUE)
+  max_var &lt;- max(data_person[[paste0(&quot;imean_&quot;, var)]], na.rm = TRUE)
+  sd_bet_var &lt;- sd(data_person[[paste0(&quot;imean_&quot;, var)]], na.rm = TRUE)
+  
+  # Create a data frame with the results for each variable
+  result &lt;- data.frame(
+    variable = paste0(var),
+    Mean = mean_var,
+    Min = min_var,
+    Max = max_var,
+    SD_Between = sd_bet_var,
+    stringsAsFactors = FALSE
+  )
+  return(result)
+}
+
+# Use lapply to calculate descriptives for each variable
+descriptives &lt;- lapply(ESM_variables, calculate_descriptives)
+
+# Combine the results into a single data frame
+results_desc &lt;- do.call(rbind, descriptives)
+
+## ICC results -------------------------------------------------------------
+
+# Create a function to calculate ICC for each variable
+calculate_icc &lt;- function(var) {
+  lme &lt;- lmer(as.formula(paste(var, &quot;~ 1 + (1 | participant.ID)&quot;)), data = data_evening)
+  return(performance::icc(lme)$ICC_adjusted)
+}
+
+# Use lapply to calculate ICC for each variable and store results in a list
+icc_results_list &lt;- lapply(ESM_variables, calculate_icc)
+
+# Convert the list to a dataframe
+results_icc &lt;- data.frame(variable = ESM_variables,
+                          adjusted_icc = unlist(icc_results_list),
+                          stringsAsFactors = FALSE)
+
+results_icc&lt;-apa_num(results_icc,gt1=FALSE)
+
+# Extract minimum and maximum
+icc_min&lt;-as.numeric(min(results_icc$adjusted_icc))
+icc_max&lt;-as.numeric(max(results_icc$adjusted_icc))
+
+# Extract percentages
+icc_per_max&lt;-100-(icc_min*100)
+icc_per_min&lt;-100-(icc_max*100)
+
+## % zero responses ----------------------------------------------
+
+# Create a function to calculate percentages for each variable
+calculate_percentages &lt;- function(variable) {
+  # Calculate the percentage of zeros
+  zeros &lt;- (sum(data_evening[[variable]] == 0, na.rm = TRUE) / sum(!is.na(data_evening[[variable]]))) * 100
+  
+  # Create a data frame for the variable with percentages
+  row &lt;- data.frame(variable = variable, Percentage_Zeros = zeros, stringsAsFactors = FALSE)
+  return(row)
+}
+
+# Use lapply to calculate percentages for each variable
+results_per_list &lt;- lapply(ESM_variables, calculate_percentages)
+
+# Combine the results into a single data frame
+results_per &lt;- do.call(rbind, results_per_list)
+
+# merge dataframes and rename rows
+res_table_des &lt;- cbind(results_desc, results_per, results_icc)%&gt;%
+  cbind(ESM_names,.)%&gt;%
+  select(-contains(&quot;variable&quot;)) 
+
+# Rename columns
+res_table_des_columns&lt;-c(&quot;&quot;,&quot;Mean&quot;, &quot;Min&quot;, &quot;Max&quot;, &quot;$SD$&quot;, &quot;\\% 0 resp&quot;, &quot;ICC&quot;)
+
+colnames(res_table_des) &lt;- res_table_des_columns
+
+# Show table
+res_table_des</code></pre>
+<pre><code>##                               Mean       Min      Max     $SD$ \\% 0 resp ICC
+## 1       Emotion intensity 6.019496 2.8714286 8.411429 1.101318   1.944351 .19
+## 2 Emotion controllability 4.840280 1.8800000 8.285106 1.442126   2.380154 .28
+## 3              Relaxation 4.325397 0.4629630 8.521277 1.666088  12.303051 .31
+## 4              Expression 4.531065 1.7350000 7.676000 1.150963   8.649011 .13
+## 5              Rumination 5.152332 1.4937500 7.976596 1.177742   5.833054 .16
+## 6             Reappraisal 3.106286 0.1886364 6.254167 1.443743  15.085484 .31
+## 7             Distraction 5.416796 2.0000000 8.514894 1.157956   5.866577 .14
+## 8             Suppression 5.359588 2.0125000 8.640426 1.278338   4.927925 .19</code></pre>
+<pre class="r"><code>## paired t-tests ER strategies ----------------------------------------------
+# Subset the dataframe to include only the &quot;imean&quot; &amp; &quot;ER&quot; variables
+imean_ER_vars &lt;- data_M %&gt;% 
+  select(starts_with(&quot;imean&quot;)) %&gt;%
+  select(contains(&quot;.er&quot;))
+
+imean_ER_vars&lt;-as.data.frame(imean_ER_vars)
+
+num_vars &lt;- ncol(imean_ER_vars)
+
+# Create an empty dataframe to store the results of the paired t-test
+paired_t_test &lt;- data.frame(Variable1 = character(),
+                            Variable2 = character(),
+                            t_value = numeric(),
+                            p_value = numeric(),
+                            stringsAsFactors = FALSE)
+
+# Perform pairwise t-tests and store the results (loop through all combinations)
+for (i in 1:(num_vars - 1)) {
+  for (j in (i + 1):num_vars) {
+    # Perform paired t-test
+    t_test &lt;- t.test(imean_ER_vars[, i], imean_ER_vars[, j], paired = TRUE)
+    
+    # Store the results in the dataframe
+    paired_t_test &lt;- rbind(paired_t_test, data.frame(Variable1 = names(imean_ER_vars)[i],
+                                                     Variable2 = names(imean_ER_vars)[j],
+                                                     t_value = t_test$statistic,
+                                                     p_value = t_test$p.value,
+                                                     stringsAsFactors = FALSE))
+  }
+}
+
+print(paired_t_test)</code></pre>
+<pre><code>##           Variable1       Variable2     t_value
+## t    imean_n.er.rel  imean_n.er.eng  -1.1483378
+## t1   imean_n.er.rel  imean_n.er.rum  -4.5963170
+## t2   imean_n.er.rel imean_n.er.reap   7.4954136
+## t3   imean_n.er.rel  imean_n.er.dis  -5.6176408
+## t4   imean_n.er.rel  imean_n.er.sup  -4.8435669
+## t5   imean_n.er.eng  imean_n.er.rum  -3.9737039
+## t6   imean_n.er.eng imean_n.er.reap   9.8610930
+## t7   imean_n.er.eng  imean_n.er.dis  -5.9960810
+## t8   imean_n.er.eng  imean_n.er.sup  -4.3497394
+## t9   imean_n.er.rum imean_n.er.reap  12.8104646
+## t10  imean_n.er.rum  imean_n.er.dis  -1.6685845
+## t11  imean_n.er.rum  imean_n.er.sup  -1.4460289
+## t12 imean_n.er.reap  imean_n.er.dis -14.7527042
+## t13 imean_n.er.reap  imean_n.er.sup -11.3448323
+## t14  imean_n.er.dis  imean_n.er.sup   0.3830471
+##                              p_value
+## t   0.254338717117866930372827027895
+## t1  0.000016306553374904800941206512
+## t2  0.000000000088719596078044831132
+## t3  0.000000286960743215243954716900
+## t4  0.000006340749840542879164385914
+## t5  0.000156773488155631122911021214
+## t6  0.000000000000002333575678397359
+## t7  0.000000059333052730198869851967
+## t8  0.000040801755875572465214785878
+## t9  0.000000000000000000007107703405
+## t10 0.099209363986431736703863748517
+## t11 0.152175420869105182397618136747
+## t12 0.000000000000000000000002824111
+## t13 0.000000000000000003524764921037
+## t14 0.702726812918265109075832697272</code></pre>
+<pre class="r"><code># not significant 
+paired_t_test[paired_t_test$p_value &gt; 0.05, ]</code></pre>
+<pre><code>##          Variable1      Variable2    t_value    p_value
+## t   imean_n.er.rel imean_n.er.eng -1.1483378 0.25433872
+## t10 imean_n.er.rum imean_n.er.dis -1.6685845 0.09920936
+## t11 imean_n.er.rum imean_n.er.sup -1.4460289 0.15217542
+## t14 imean_n.er.dis imean_n.er.sup  0.3830471 0.70272681</code></pre>
+<pre class="r"><code># It is a big table, so I will extract a summary of the results
+
+## Difference distraction, suppression, rumination 
+dis_sup_rum&lt;- paired_t_test %&gt;%
+  filter(Variable1 == &quot;imean_n.er.dis&quot; &amp; Variable2 == &quot;imean_n.er.sup&quot; |
+           Variable1 == &quot;imean_n.er.rum&quot; &amp; Variable2 == &quot;imean_n.er.dis&quot; |
+           Variable1 == &quot;imean_n.er.rum&quot; &amp; Variable2 == &quot;imean_n.er.sup&quot;)
+
+dis_sup_rum_t_min&lt;-min(dis_sup_rum$t_value)
+dis_sup_rum_t_max&lt;-max(dis_sup_rum$t_value)
+dis_sup_rum_p_min&lt;-min(dis_sup_rum$p_value)
+
+## Difference relaxation and expression
+rel_n.eng &lt;- paired_t_test %&gt;%
+  filter(Variable1 == &quot;imean_n.er.rel&quot; &amp; Variable2 == &quot;imean_n.er.eng&quot;)
+
+rel_n.eng_t&lt;-rel_n.eng$t_value
+rel_n.eng_p&lt;-rel_n.eng$p_value
+
+## All significant ones
+sig_ttest&lt;-paired_t_test[paired_t_test$p_value &lt; 0.05, ]
+
+sig_ttest_min&lt;-min(abs(sig_ttest$t_value))
+sig_ttest_max&lt;-max(abs(sig_ttest$t_value))
+sig_ttest_p_max&lt;-max(sig_ttest$p_value)
+
+# Within- and between-person correlation ----
+
+# calculate within-person and between-person correlation and save results as excelfile
+multilevel.cor(data_evening[, ESM_variables],
+               cluster = data_evening$participant.ID, 
+               split = FALSE, sig = TRUE, 
+               tri.lower = FALSE,
+               print = c(&quot;cor&quot;, &quot;p&quot;),
+               write = &quot;correlation&quot;)</code></pre>
+<pre><code>## Warning: Data set contains 1507 cases with missing on all variables that are
+## measured on the within level which were not included in the analysis.</code></pre>
+<pre><code>##  Within-Group and Between-Group Correlation Matrix
+##                                             
+##   lavaan 0.6-21                             
+##                                             
+##    Estimator                        ML      
+##    Standard Errors        Conventional      
+##    Missing Data                   FIML      
+##                                             
+##                                   Used Total
+##    Number of Observations         2983  2983
+##    Number of Clusters               79      
+## 
+##              n.em.int n.em.cont n.er.rel n.er.eng n.er.rum n.er.reap n.er.dis
+##    n.em.int               -0.43     0.23     0.39     0.54      0.12     0.12
+##    n.em.cont    -0.42              -0.02    -0.17    -0.33     -0.03     0.02
+##    n.er.rel      0.25      0.17              0.21     0.19      0.09     0.08
+##    n.er.eng      0.38      0.13     0.44              0.30      0.06     0.04
+##    n.er.rum      0.67     -0.13     0.45     0.29               0.13     0.09
+##    n.er.reap     0.26      0.20     0.60     0.58     0.50               0.14
+##    n.er.dis      0.13      0.35     0.33     0.43     0.30      0.50         
+##    n.er.sup      0.34     -0.14     0.20     0.01     0.49      0.15     0.45
+##              n.er.sup
+##    n.em.int      0.19
+##    n.em.cont    -0.08
+##    n.er.rel      0.17
+##    n.er.eng     -0.07
+##    n.er.rum      0.21
+##    n.er.reap     0.15
+##    n.er.dis      0.26
+##    n.er.sup          
+## 
+##  Significance Value (p-value)
+## 
+##              n.em.int n.em.cont n.er.rel n.er.eng n.er.rum n.er.reap n.er.dis
+##    n.em.int               0.000    0.000    0.000    0.000     0.000    0.000
+##    n.em.cont    0.000              0.372    0.000    0.000     0.117    0.213
+##    n.er.rel     0.031     0.152             0.000    0.000     0.000    0.000
+##    n.er.eng     0.001     0.301    0.000             0.000     0.001    0.019
+##    n.er.rum     0.000     0.303    0.000    0.018              0.000    0.000
+##    n.er.reap    0.024     0.080    0.000    0.000    0.000              0.000
+##    n.er.dis     0.323     0.002    0.004    0.000    0.012     0.000         
+##    n.er.sup     0.003     0.251    0.100    0.920    0.000     0.206    0.000
+##              n.er.sup
+##    n.em.int     0.000
+##    n.em.cont    0.000
+##    n.er.rel     0.000
+##    n.er.eng     0.000
+##    n.er.rum     0.000
+##    n.er.reap    0.000
+##    n.er.dis     0.000
+##    n.er.sup          
+## 
+##   Adjustment for multiple testing: none
+## 
+##  Note. n(within) = 2983, n(between) = 79 
+##        Lower triangular: Between-Group, Upper triangular: Within-Group</code></pre>
+<pre class="r"><code># Move file to output folder
+file.rename(
+  &quot;correlation.xlsx&quot;,
+  here::here(&quot;manuscript&quot;, &quot;R&quot;, &quot;output&quot;, &quot;correlation.xlsx&quot;)
+)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code># Read data from Excel sheets (results of multilevel correlations)
+cor_raw &lt;- readxl::read_excel(here::here(&quot;manuscript/R/output/correlation.xlsx&quot;), sheet = 2) %&gt;%
+  as.data.frame()</code></pre>
+<pre><code>## New names:
+## • `` -&gt; `...1`</code></pre>
+<pre class="r"><code>p_raw &lt;- readxl::read_excel(here::here(&quot;manuscript/R/output/correlation.xlsx&quot;), sheet = 3) %&gt;%
+  as.data.frame()</code></pre>
+<pre><code>## New names:
+## • `` -&gt; `...1`</code></pre>
+<pre class="r"><code># Function to assign stars based on p-values
+p_to_stars &lt;- function(p) {
+  case_when(
+    is.na(p)      ~ NA_character_,
+    p &lt; 0.001     ~ &quot;***&quot;,
+    p &lt; 0.01      ~ &quot;**&quot;,
+    p &lt; 0.05      ~ &quot;*&quot;,
+    TRUE          ~ &quot;&quot;
+  )
+}
+
+format_cor_value &lt;- function(x) {
+  out &lt;- papaja::apa_num(x, gt1 = FALSE)
+  ifelse(out == &quot;&gt; .99&quot;, &quot; &quot;, out)
+}
+
+add_stars &lt;- function(cor_val, stars) {
+  ifelse(
+    is.na(stars) | stars == &quot;&quot;,
+    cor_val,
+    paste0(cor_val, stars)
+  )
+}
+
+# Keep first column as variable names
+colnames(cor_raw)[1] &lt;- &quot;variables&quot;
+colnames(p_raw)[1] &lt;- &quot;variables&quot;
+
+# Create star matrix form p-values
+p_stars &lt;- p_raw %&gt;%
+  mutate(across(-variables, p_to_stars))
+
+# Create correlation matrix
+cor_fmt &lt;- cor_raw %&gt;%
+  mutate(across(-variables, format_cor_value))
+
+# Add significance stars to correlation matrix
+res_table_cor &lt;- cor_fmt
+
+res_table_cor[-1] &lt;- Map(
+  add_stars,
+  cor_fmt[-1],
+  p_stars[-1]
+)
+
+# Replace variable names with manuscript labels
+ESM_names_no &lt;- c(
+  &quot;1. Negative emotion intensity&quot;,
+  &quot;2. Negative emotion control&quot;,
+  &quot;3. Relaxation&quot;,
+  &quot;4. Expression&quot;,
+  &quot;5. Rumination&quot;,
+  &quot;6. Reappraisal&quot;,
+  &quot;7. Distraction&quot;,
+  &quot;8. Suppression&quot;
+)
+
+res_table_cor &lt;- res_table_cor %&gt;%
+  mutate(variables = ESM_names_no)
+
+# Rename columns
+colnames(res_table_cor) &lt;- c(&quot;&quot;, paste0(1:8, &quot;.&quot;))
+
+# Show table
+res_table_cor</code></pre>
+<pre><code>##                                      1.      2.     3.      4.      5.     6.
+## 1 1. Negative emotion intensity         -.43*** .23***  .39***  .54*** .12***
+## 2   2. Negative emotion control -.42***           -.02 -.17*** -.33***   -.03
+## 3                 3. Relaxation    .25*     .17         .21***  .19*** .09***
+## 4                 4. Expression   .38**     .13 .44***          .30***  .06**
+## 5                 5. Rumination  .67***    -.13 .45***    .29*         .13***
+## 6                6. Reappraisal    .26*     .20 .60***  .58***  .50***       
+## 7                7. Distraction     .13   .35**  .33**  .43***    .30* .50***
+## 8                8. Suppression   .34**    -.14    .20     .01  .49***    .15
+##       7.      8.
+## 1 .12***  .19***
+## 2    .02 -.08***
+## 3 .08***  .17***
+## 4   .04* -.07***
+## 5 .09***  .21***
+## 6 .14***  .15***
+## 7         .26***
+## 8 .45***</code></pre>
+<pre class="r"><code># Save processed files and outputs ----
+descriptives &lt;- list(
+  n_beep1=n_beep1,
+  comp1 = comp1,
+  comp3 = comp3,
+  comp_min = comp_min,
+  comp_max =comp_max,
+  comp_m = comp_m,
+  comp_sd = comp_sd,
+  comp_m_p = comp_m_p,
+  comp_sd_p = comp_sd_p,
+  comp_min_p = comp_min_p,
+  comp_max_p = comp_max_p,
+  n_obs_p = n_obs_p,
+  n_sent = n_sent,
+  sig_e_comp_sup = sig_e_comp_sup,
+  sig_p_comp_sup = sig_p_comp_sup,
+  nsig_e_comp_ESM_min = nsig_e_comp_ESM_min,
+  nsig_e_comp_ESM_max = nsig_e_comp_ESM_max,
+  nsig_p_comp_ESM_min = nsig_p_comp_ESM_min,
+  nsig_p_comp_ESM_max = nsig_p_comp_ESM_max,
+  Age_m = Age_m,
+  Age_sd = Age_sd,
+  Age_min = Age_min,
+  Age_max = Age_max,
+  student = student,
+  dis_sup_rum_t_min = dis_sup_rum_t_min,
+  dis_sup_rum_t_max = dis_sup_rum_t_max,
+  dis_sup_rum_p_min = dis_sup_rum_p_min,
+  rel_n.eng_t = rel_n.eng_t,
+  rel_n.eng_p = rel_n.eng_p,
+  sig_ttest_min = sig_ttest_min,
+  sig_ttest_max = sig_ttest_max,
+  sig_ttest_p_max = sig_ttest_p_max,
+  icc_min = icc_min,
+  icc_max = icc_max,
+  icc_per_min = icc_per_min,
+  icc_per_max = icc_per_max,
+  per_em_ev_rel = per_em_ev_rel,
+  res_table_des = res_table_des,
+  res_table_cor = res_table_cor
+)
+
+saveRDS(descriptives,  here::here(&quot;manuscript/R/output/descriptives.rds&quot;))</code></pre>
 
 
 

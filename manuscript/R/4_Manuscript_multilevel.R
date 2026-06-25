@@ -10,11 +10,11 @@
 #
 
 # Setup ----
-source("manuscript/R/1_Manuscript_setup.R")
+source(here::here("manuscript/R/1_Manuscript_setup.R"))
 here::i_am("manuscript/R/4_Manuscript_multilevel.R") #Set location of script
 
-data_evening <- readRDS("manuscript/R/output/data_evening_clean.rds")
-descriptives <- readRDS("manuscript/R/output/descriptives.rds")
+data_evening <- readRDS(here::here("manuscript/R/output/data_evening_clean.rds"))
+descriptives <- readRDS(here::here("manuscript/R/output/descriptives.rds"))
 
 # 4 random effects per model, namely:
 # - correlation random slope quadratic term emotion characteristics and random intercept emotion
@@ -172,6 +172,9 @@ all_estimates <- rbind(coefs.n.lin,coefs.n.qua,coefs.mod)
 
 all_estimates$p.adj<-p.adjust(all_estimates$p, method = "holm")
 
+# Show table
+all_estimates
+
 # Compare model fit of linear and quadratic model (not pre-registered) ----------------------
 # as a response to a co-author, we also added model comparisons 
 # Comment: Exploratory comparisons on model fit metrics (AIC/BIC/RMSE) may show that quadratic fits better in all cases (that's my guess). This will make your the purpose of this paper - to remind people to consider and analyze quadratic effect - stand out even more.
@@ -324,6 +327,9 @@ results_n_er_anova <- results_n_er_anova %>%
          BIC_model1, BIC_model2, delta_BIC,
          l_ratio, p_value)
 
+# Show table
+results_n_er_anova
+
 # Add predicted values of outcomes at meaningful predictor values --- 
 
 ## ADJUSTMENT BASED ON REVISION 1: TRANSLATED QUADRATIC COEFFICIENTS INTO PREDICTED OUTCOMES AT MEANINGFUL VALUES OF THE PREDICTOR (-2SD, MEAN, +2SD)
@@ -394,11 +400,11 @@ names <- list(
   names_est=names_est
 )
 
-saveRDS(all_estimates,  "manuscript/R/output/all_estimates.rds")
-saveRDS(fits.n, "manuscript/R/output/fits.n.rds")
-saveRDS(results_n_er_anova, "manuscript/R/output/results_n_er_anova.rds")
-saveRDS(names, "manuscript/R/output/names.rds")
-saveRDS(pred_quad_models, "manuscript/R/output/pred_quad_models.rds")
+saveRDS(all_estimates,  here::here("manuscript/R/output/all_estimates.rds"))
+saveRDS(fits.n, here::here("manuscript/R/output/fits.n.rds"))
+saveRDS(results_n_er_anova, here::here("manuscript/R/output/results_n_er_anova.rds"))
+saveRDS(names, here::here("manuscript/R/output/names.rds"))
+saveRDS(pred_quad_models, here::here("manuscript/R/output/pred_quad_models.rds"))
 
 
 

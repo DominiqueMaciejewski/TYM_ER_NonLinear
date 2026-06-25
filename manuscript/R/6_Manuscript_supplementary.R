@@ -12,11 +12,12 @@
 # Setup ----
 
 # load data and objects from manuscript
-source("manuscript/R/1_Manuscript_setup.R")
+source(here::here("manuscript/R/1_Manuscript_setup.R"))
 
 here::i_am("manuscript/R/6_Manuscript_supplementary.R") #Set location of script
 
-data_evening <- readRDS("manuscript/R/output/data_evening_clean.rds")
+data_evening <- readRDS(here::here("manuscript/R/output/data_evening_clean.rds"))
+names <- readRDS(here::here("manuscript/R/output/names.rds"))
 
 # Analyses positive emotion regulation ----
 
@@ -49,6 +50,9 @@ coefs.p.sav <- rbind(data.frame(outcome = "savoring",
                                 qua.se = qua.se.sav, 
                                 qua.p = qua.p.sav))
 
+# show results
+coefs.p.sav
+
 # Expression
 fit.p.er.eng.mlm <- lme(p.er.eng ~ 1 + p.em.int.c + I(p.em.int.c^2) + Age.c + gender.dum + micro + obs.evening,
                         random= ~ 1 + p.em.int.c + I(p.em.int.c^2) | participant.ID,
@@ -75,6 +79,8 @@ coefs.p.eng <- rbind(data.frame(outcome = "expression",
 
 coefs.p <- rbind(coefs.p.sav,coefs.p.eng)
 
+
+
 ## Multiple Testing Adjustment ----------------------
 ## Transpose all dataframes, so that each effect is in one row
 
@@ -92,6 +98,9 @@ all_estimates_pos <- rbind(coefs.p.lin,coefs.p.qua)
 
 all_estimates_pos$p.adj<-p.adjust(all_estimates_pos$p, method = "holm")
 
+# show results
+all_estimates_pos
+
 ## Coefficients Positive Intensity ----------------------
 coefs.p.lin.adj <- all_estimates_pos %>%
   slice(1:2)  %>%
@@ -108,6 +117,9 @@ coefs.p.qua.adj <- all_estimates_pos %>%
   select(-c(1,4))
 
 coefs.p.adj <-cbind(coefs.p.lin.adj,coefs.p.qua.adj) 
+
+# show results
+coefs.p.adj
 
 # Assign estimates to objects for printing in text
 lin.eng.est<-coefs.p.adj$lin.est[1]
@@ -146,4 +158,4 @@ coefs.p.adj <- list(
   qua.sav.p=qua.sav.p
 )
 
-saveRDS(coefs.p.adj, "manuscript/R/output/coefs.p.adj.rds")
+saveRDS(coefs.p.adj, here::here("manuscript/R/output/coefs.p.adj.rds"))
