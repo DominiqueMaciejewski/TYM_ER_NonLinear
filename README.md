@@ -141,11 +141,19 @@ Reproduce the results by these steps.
 
 1.  Install RStudio and R.
 
-2.  [Clone](https://cjvanlissa.github.io/worcs/articles/reproduce.html#obtaining-the-project-repository) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
+2.  Install WORCS dependencies.
 
-3.  To reproduce the power analyses, run the `preregistration/Power-analyses.R` and knit the `preregistration/preregistration.Rmd` file.
+    `install.packages("worcs", dependencies = TRUE)`\
+    `tinytex::install_tinytex()`\
+    `renv::consent(provided = TRUE)`
+    
+    *Note*: See <https://cjvanlissa.github.io/worcs/articles/setup.html> for more information on this step.
 
-4.  To reproduce the manuscript including the results, run the R scripts in the order of presentation (i.e., starting with `1_Manuscript_setup.R` and ending with `6_Manuscript_supplementary.R`. You do not need to run the script `0_Manuscript_data-prep`. This was just for me to prepare the dataset for sharing).
+3.  [Clone](https://cjvanlissa.github.io/worcs/articles/reproduce.html#obtaining-the-project-repository) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
+
+4.  To reproduce the power analyses, run the `preregistration/Power-analyses.R` and knit the `preregistration/preregistration.Rmd` file.
+
+5.  To reproduce the manuscript including the results, run the R scripts in the order of presentation (i.e., starting with `1_Manuscript_setup.R` and ending with `6_Manuscript_supplementary.R`. You do not need to run the script `0_Manuscript_data-prep`. This was just for me to prepare the dataset for sharing).
     Then, knit the `manuscript/manuscript.Rmd` file and `manuscript/supplementary_materials.Rmd`.
 
     *Note:* In an earlier version of this GitHub repo, I worked with the `renv` package to restore the exact package dependencies used in the analyses. 
