@@ -266,7 +266,7 @@ This was followed by questions about emotion characteristics and emotion regulat
 
 [^2]: Note that before asking participants about their most intense negative *emotions*, we asked them about the most intense negative *event* they experienced, including content, intensity and impact. While some studies study the link between such *situational* characteristics and emotion regulation strategies, we decided to focus on *emotion* characteristics, because emotion regulation is about the regulation of an emotion, not a situation. In fact, when we asked participants whether their most intense emotion was related to the most intense event they just reported on, in `r printnum(descriptives$per_em_ev_rel,format="d")`% of the cases, the most intense negative emotion was *not* related to the most intense negative event. 
 
-```{r figuredesign, fig.cap="Questions on Emotion Characteristics and Emotion Regulation Strategy Use"}
+```{r figuredesign, out.width="100%", fig.cap="Questions on Emotion Characteristics and Emotion Regulation Strategy Use"}
 knitr::include_graphics("figure1_negERonly.png")
 ```
 
@@ -317,7 +317,7 @@ However, in the main text we focus on the replacement results (i.e., strategy sw
 We report the nestedness results (i.e., endorsement change) in Supplemental Materials 2.
 
 
-```{r figureERV, out.width="75%", fig.cap="Subcomponents of Emotion Regulation Variability: Endorsement Change and Strategy Switching. Endorsement change refers to the overall change in endorsing emotion regulation strategies. Strategy switching refers to changing the composition of strategies. For the sake of clarity only two emotion regulation strategies are shown, but the index can handle more than two different strategies."}
+```{r figureERV, out.width="100%", fig.cap="Subcomponents of Emotion Regulation Variability: Endorsement Change and Strategy Switching. Endorsement change refers to the overall change in endorsing emotion regulation strategies. Strategy switching refers to changing the composition of strategies. For the sake of clarity only two emotion regulation strategies are shown, but the index can handle more than two different strategies."}
 knitr::include_graphics("ERVariability_explained.png")
 ```
 
@@ -372,7 +372,7 @@ Paired *t*-tests of person-aggregated mean scores across time indicate that dist
 The test-statistics of the significant comparisons ranged from *t* = `r printnum(descriptives$sig_ttest_min)` $-$ `r printnum(descriptives$sig_ttest_max)`, all *p*'s `r printp(descriptives$sig_ttest_p_max, digits = 3L)`.
 The ICC's for emotion characteristics ranged between `r printnum(descriptives$icc_min)` and `r printnum(descriptives$icc_max)`, indicating that `r descriptives$icc_per_min` $-$ `r descriptives$icc_per_max`% of the variance in emotion characteristics and emotion regulation strategies occurred at the within-person level.
 
-```{r figurevio, fig.cap="Violin Plots of Emotion Characteristics and Emotion Regulation Strategy Use"}
+```{r figurevio, out.width="100%", fig.cap="Violin Plots of Emotion Characteristics and Emotion Regulation Strategy Use"}
 knitr::include_graphics("vio_apa.png")
 ```
 
@@ -434,7 +434,7 @@ apa_table(
 
 <!--Figure-->
 
-```{r figuremlmerint, fig.cap="Within-person association between person-centered emotion intensity and emotion regulation strategy use. Blue, thick lines depict average fixed effects, grey, thin lines depict individual effects. Distraction and Strategy Switching showed neither linear nor quadratic associations with emotion intensity, thus we did not add the average fixed effect in the figure."}
+```{r figuremlmerint, out.width="100%", fig.cap="Within-person association between person-centered emotion intensity and emotion regulation strategy use. Blue, thick lines depict average fixed effects, grey, thin lines depict individual effects. Distraction and Strategy Switching showed neither linear nor quadratic associations with emotion intensity, thus we did not add the average fixed effect in the figure."}
 
 knitr::include_graphics("mlm_plots_er_int.png")
 
@@ -442,7 +442,7 @@ knitr::include_graphics("mlm_plots_er_int.png")
 
 <!--Figure-->
 
-```{r figuremlmercont, fig.cap="Within-person association between person-centered emotion controllability and emotion regulation strategy use. Blue, thick lines depict average fixed effects, grey, thin lines depict individual effects. Relaxation and distraction showed neither linear nor quadratic associations with emotion controllability, thus we did not add the average fixed effect in the figure."}
+```{r figuremlmercont, out.width="100%", fig.cap="Within-person association between person-centered emotion controllability and emotion regulation strategy use. Blue, thick lines depict average fixed effects, grey, thin lines depict individual effects. Relaxation and distraction showed neither linear nor quadratic associations with emotion controllability, thus we did not add the average fixed effect in the figure."}
 
 knitr::include_graphics("mlm_plots_er_cont.png")
 

@@ -144,15 +144,21 @@ Reproduce the results by these steps.
 2.  Install WORCS dependencies.
 
     `install.packages("worcs", dependencies = TRUE)`\
-    `tinytex::install_tinytex()`\
+    `tinytex::install_tinytex()`
 
     *Note*: See <https://cjvanlissa.github.io/worcs/articles/setup.html> for more information on this step.
 
-3.  [Clone](https://cjvanlissa.github.io/worcs/articles/reproduce.html#obtaining-the-project-repository) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
+3.   Download the data from <https://doi.org/10.34973/s90j-0r08>. Without this step, you cannot run the analyses, but still check the code.
 
-4.  To reproduce the power analyses, run the `preregistration/Power-analyses.R` and knit the `preregistration/preregistration.Rmd` file.
+4.   [Clone](https://cjvanlissa.github.io/worcs/articles/reproduce.html#obtaining-the-project-repository) this repo (<https://github.com/DominiqueMaciejewski/TYM_ER_NonLinear.git>) to your RStudio
 
-5.  To reproduce the manuscript including the results, run the R scripts in the order of presentation (i.e., starting with `1_Manuscript_setup.R` and ending with `6_Manuscript_supplementary.R`. You do not need to run the script `0_Manuscript_data-prep`. This was just for me to prepare the dataset for sharing).
+5.   Open the `R`project file called `TYM_ER_NonLinear.RProj`.
+
+6.   To reproduce the power analyses, run the `preregistration/Power-analyses.R` and knit the `preregistration/preregistration.Rmd` file.
+
+7.   To reproduce the manuscript including the results, run the R scripts in the order of presentation from the folder `manuscript/R` 
+(i.e., starting with `1_Manuscript_setup.R` and ending with `6_Manuscript_supplementary.R`). 
+You do not need to run the script `0_Manuscript_data-prep`. This was just for me to prepare the dataset for sharing).
     Then, knit the `manuscript/manuscript.Rmd` file and `manuscript/supplementary_materials.Rmd`.
 
     *Note:* In an earlier version of this GitHub repo, I worked with the `renv` package to restore the exact package dependencies used in the analyses. 
