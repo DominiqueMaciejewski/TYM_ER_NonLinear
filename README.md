@@ -161,11 +161,11 @@ Reproduce the results by these steps.
 You do not need to run the script `0_Manuscript_data-prep`. This was just for me to prepare the dataset for sharing).
     Then, knit the `manuscript/manuscript.Rmd` file and `manuscript/supplementary_materials.Rmd`.
 
-  *Note*: In an earlier version of this GitHub repo, I worked with the renv package to restore the exact package dependencies used in the analyses. 
+  *Note: In an earlier version of this GitHub repo, I worked with the renv package to restore the exact package dependencies used in the analyses. 
   However, I personally found that there were always issues when trying to activate the project.
-  So, I decided to not use this package anymore and instead give all the versions of packages used in sessionInfo()
+  So, I decided to not use this package anymore and instead give all the versions of packages used in `sessionInfo()`
   (found in the file `1_Manuscript_setup.R`). 
-  Given that the analyses here are relatively standard multilevel models, I do not expect different results with different packages.
+  Given that the analyses here are relatively standard multilevel models, I do not expect different results with different packages.*
     
 # Reproducibility
 
